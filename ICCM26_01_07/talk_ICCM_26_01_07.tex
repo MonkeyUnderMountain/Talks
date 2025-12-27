@@ -1,0 +1,310 @@
+\documentclass{beamer}
+
+% Recommended beamer themes:
+% \usetheme{Madrid}        % Clean and modern
+\usetheme{Berlin}        % Simple, with sidebar
+% \usetheme{Frankfurt}     % Minimal, with top navigation
+% \usetheme{CambridgeUS}   % Classic academic look
+% \usetheme{Bergen}        % Elegant, with sidebar
+% \usetheme{AnnArbor}      % Colorful, with sidebar
+% \usetheme{Darmstadt}     % Professional, with sidebar
+% \usetheme{Singapore}     % Clean, with sidebar
+% \usetheme{Warsaw}        % Modern, with navigation bar
+
+
+% 图形与排版支持
+\usepackage{graphicx}       % 图形插入支持
+\usepackage{adjustbox}      % 高级图片调整
+\usepackage{framed}         % 边框环境
+\usepackage{amssymb,amsfonts} % 数学符号和字体支持
+% \usepackage{amsthm}         % 定理环境支持
+\usepackage[dvipsnames]{xcolor} % 颜色支持
+\usepackage[most]{tcolorbox} % 彩色盒子环境
+\usepackage{tikz}           % 矢量绘图
+\usepackage{tikz-cd}        % 交换图绘制
+\usepackage[all]{xy}        % 交换图绘制
+%%
+% \usepackage{enumitem}       % 自定义列表标签
+%%
+
+\usepackage[backend=biber,style=alphabetic]{biblatex} % 参考文献管理
+\addbibresource{ref.bib}
+
+\usepackage[nameinlink]{cleveref} % 智能引用（自动添加前缀）
+
+% 定理环境定义
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{question}{Question}
+% \newtheorem{definition}{Definition}
+
+% 中文支持
+\usepackage[scheme=plain]{ctex} % 中文基础方案
+\usepackage{fontspec}      % 字体配置
+
+% Unicode数学字体支持
+\usepackage{unicode-math}
+\setmainfont{Times New Roman}
+\setmathfont{Cambria Math}
+\setmathfont{STIX Two Math}[range=cal]
+\setmathfont{Libertinus Math}[range=scr]
+
+\input{notation.tex}
+
+% \usepackage{mathabx,epsfig}
+\def\acts{\ \rotatebox[origin=c]{-90}{$\circlearrowright$}\ }
+\def\racts{\ \rotatebox[origin=c]{90}{$\circlearrowleft$}\ }
+\def\dacts{\ \rotatebox[origin=c]{0}{$\circlearrowright$}\ }
+\def\uacts{\ \rotatebox[origin=c]{180}{$\circlearrowright$}\ }
+
+\title{Dynamical Iitaka Theory on Fano Contractions}
+\author{Tianle Yang, \\ joint work with Sheng Meng and Long Wang}
+\date{2026.01.07}
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+% \begin{frame}{Outline}
+%     \tableofcontents
+% \end{frame}
+
+
+\section{Algebraic Dynamics}
+
+\begin{frame}{Algebraic Dynamics}
+    We work over an algebraically closed field \(\kkk\) of characteristic zero, usually \(\kkk=\bbC\) or \(\kkk=\overline{\bbQ}\).
+
+    \pause
+
+    The fundamental objects in algebraic dynamics are \((X,f)\), where \(X\) is a variety and \(f:X \dashrightarrow X\) is a dominant rational self-map.
+
+    Here we focus on the case \(X\) is projective and \(f\) is a surjective endomorphism.
+
+    For simplicity, we assume that \(X\) is smooth.
+\end{frame}
+
+\begin{frame}{Dynamical degree and arithmetic degree}
+
+    \begin{definition}[First dynamical degree]\label{def: delta_f}
+        The \textit{first dynamical degree} \(\delta_f\) of \(f\) is defined to be the following limit
+        \[
+        \delta_f := \lim_{n\to\infty}((f^n)^*H\cdot H^{\dim X-1})^{1/n}\in\mathbb{R}_{\geq 1},
+        \]
+        where $H$ is an ample Cartier divisor on \(X\).
+    \end{definition}
+
+    % In our case, 
+    % it is also known that 
+    % the first dynamical degree \(\delta_f\) coincides with the spectral radius of the induced linear operation \(f^*|_{\textup{NS}(X)\ten_\bbZ \bbC}\).
+
+    \begin{definition}[Arithmetic degree]\label{def: alpha_f}
+        Let \(h:X(\overline{\bbQ}) \to \bbR\) be the height function associated to an ample divisor on \(X\).
+        Then for every \(x\in X(\kkk)\), we define the \emph{arithmetic degree of \(f\) at \(x\)} by
+        \[
+            \alpha_f(x)=\lim_{n\to\infty} \max\{h(f^n(x)),1\}^{1/n} \in \mathbb{R}_{\geq 1}.
+        \]
+    \end{definition}
+\end{frame}
+
+% \begin{frame}{Arithmetic degree}
+
+%     Assume that \(\kkk = \overline{\bbQ}\).
+%     Then we can define a \emph{height function}
+%     \[ h: X \subset \bbP^N \to \bbR \]
+%     which measures the arithmetic complexity of \(\kkk\)-points.
+
+%     For example, \(x = [x_0:\cdots:x_n]\in \bbP^N_\bbQ\) with \(x_i\in \bbZ\) and \(\gcd(x_0,\ldots,x_n)=1\), then
+%     \[ h(x) = \log \max\{|x_0|,\ldots,|x_n|\}. \]
+    
+
+
+
+% \end{frame}
+
+
+\begin{frame}
+    \frametitle{KSC}
+        
+    \begin{conjecture}[{Kawaguchi-Silverman Conjecture $=$ KSC}]\label{conj: ksc} 
+        Let $x \in X(\kkk)$, and suppose that the (forward) orbit $O_f(x) = \{f^n(x)\, |\, n\ge 0\}$  is Zariski dense in $X$.
+        Then the arithmetic degree at $x$ is equal to the dynamical degree of $f$, i.e.,
+        $\alpha_f(x) = \delta_f$.
+    \end{conjecture} 
+
+    \pause
+
+    If we have an equivariant surjective \((X,f) \dashrightarrow (Y,g)\) such that \(\delta_f = \delta_g\), 
+    then KSC for \((Y,g)\) implies KSC for \((X,f)\).
+
+\end{frame}
+
+% \begin{frame}
+%     \frametitle{Fibration on algebraic geometry}
+
+%     \begin{definition}
+%         A \emph{fibration} is a dominant rational map \(\pi: X \dashrightarrow Y\) with connected fibers between normal projective varieties.
+%     \end{definition}
+
+% \end{frame}
+
+
+\begin{frame}
+    \frametitle{Fibration on algebraic dynamics}
+
+    % \begin{definition}
+    %     A fibration \(\pi: X \dashrightarrow Y\) is said to be \emph{\(f\)-equivariant} if there is a dominant rational map \(g: Y \dashrightarrow Y\) such that \(\pi \circ f = g \circ \pi\).
+    % \end{definition}
+
+    A fibration \(\pi: X \dashrightarrow Y\) is said to be \emph{\(f\)-equivariant} if there is a dominant rational map \(g: Y \dashrightarrow Y\) such that \(\pi \circ f = g \circ \pi\).
+
+    \pause
+
+    Suppose that the fibration \(\pi:X \to Y\) is given by a semiample line bundle \(L\).
+    If \(f^*L \sim qL\) for some \(q\geq 1\), 
+    then \(\pi\) is \(f\)-equivariant by the rigidity lemma and simple intersection theory.
+
+    \pause
+
+    What about the case when \(L\) is only effective or when \(f^*L\) is not proportional to \(L\)?
+
+\end{frame}
+
+
+\section{Dynamical Iitaka Theory}
+
+\begin{frame}{Dynamical Iitaka dimension}
+
+    
+    \begin{definition}[Dynamical Iitaka dimension]
+        Let \(D\) be a Cartier divisor on \(X\).
+        The {\it dynamical $f$-Iitaka dimension} of $D$ is defined as 
+        $$\kappa_f(X,D):=\max\{\kappa(X,D')\,|\,D'=\sum_{i=0}^m a_i (f^*)^iD, a_i\in\bbZ\}.$$
+    \end{definition}
+\end{frame}
+
+\begin{frame}{Dynamical Iitaka fibration}
+
+    \begin{theorem}[{ref. \cite[Theorem 4.6]{MZ23b}}]
+        Suppose that $\kappa_f(X,D)\ge 0$.
+        Then there is an $f$-equivariant dominant rational map 
+        \[ f \acts X \dashrightarrow Y \racts f|_Y \]
+        with \(Y\) normal projective of dimension \(\kappa_f(X,D)\) and \(f|_Y\) a surjective endomorphism.
+    \end{theorem}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{The ramification divisor}
+
+    The \emph{ramification divisor} \(R_f\) is defined by 
+    \[ R_f := \sum_{E} (\operatorname{mult}_E f^*(f(E)) - 1) E \]
+    where the sum runs over all prime divisors \(E\) of \(X\).
+
+    It is effective and satisfies the ramification formula
+    \[ K_X = f^*K_X + R_f. \]
+
+\end{frame}
+
+
+\begin{frame}{Dynamical Iitaka Program for ramification divisor}
+
+    We consider three situations of $\kappa_f(X,R_f)$ and briefly introduce how the dynamical Iitaka theory works.
+    
+    \pause
+
+    \begin{itemize}
+        \item $\kappa_f(X,R_f)=0$. 
+            Then $f^{-1}(\Supp R_f)=\Supp R_f$ and the restriction $$f|_{X\backslash \Supp R_f}\colon X\backslash \Supp R_f\to X\backslash \Supp R_f$$ is (quasi-)\'etale.
+        
+        \pause
+        
+        \item $0<\kappa_f(X,R_f)<\dim X$.
+            We then have an $f$-equivariant dominant rational map
+            $$\varphi_{f,R_f}\colon X\dashrightarrow Y$$
+            with $0<\dim Y=\kappa_f(X,R_f)<\dim X$.
+
+        \pause
+
+        \item $\kappa_f(X,R_f)=\dim X$. 
+            In this case, $R_{f^s}$ is big when $s\gg 1$.
+    \end{itemize}
+
+\end{frame}
+
+\section{About our paper}
+
+
+\begin{frame}
+    \frametitle{Settings}
+
+    We consider the case the \((X,f)\) has admitted an \(f\)-equivariant extremal Fano contraction \(\pi: X \to Y\) such that \(\delta_f > \delta_{f|_Y}\).
+
+    \pause
+
+    Since \(\pi\) is of relative Picard number 1, the general fiber \(X_y\) is Fano and \(\delta_f > \delta_{f|_Y} \geq 1\), the ramification divisor \(R_f\) is non-trivial and \(\pi\)-ample.
+
+    \pause
+
+    Hence we want to use the dynamical Iitaka fibration associated to \(R_f\) to get another \(f\)-equivariant fibration.
+
+    \pause
+
+    Further assume that the base \(Y\) is either an abelian variety or a smooth projective variety of Picard number one, we get our main results.
+
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Main Results}
+
+    \begin{theorem}\label{mainthm: abelian}
+        Let $f$ be a surjective endomorphism of a smooth projective variety $X$ admitting an extremal Fano contraction $\pi:X\to Y$ to an abelian variety $Y$ of positive dimension.
+        Suppose $f$ admits a Zariski dense orbit and $\delta_f>\delta_{f|_Y}$.
+        Then the following hold.
+        \begin{enumerate}
+            \item The ramification divisor satisfies $f^*R_f\equiv \delta_f R_f$.
+            \item There exists an $f$-equivariant dominant rational map $\varphi:X\dashrightarrow Z$, 
+            which is the $f$-Iitaka fibration of $R_f$, 
+            such that $0<\dim Z<\dim X$ and $f|_Z$ is $\delta_f$-polarized.
+        \end{enumerate}
+    \end{theorem}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Main Results}
+
+    \begin{theorem}\label{mainthm: rho1}
+        Let $f$ be a surjective endomorphism of a smooth projective variety $X$ admitting an $f$-equivariant {\bf smooth} extremal Fano contraction $\pi:X\to Y$ with $\rho(Y)=1$.
+        Suppose $\delta_f>\delta_{f|_Y}=1$.
+        Then the following hold.
+        \begin{enumerate}
+            \item The ramification divisor satisfies $f^*R_f\equiv \delta_f R_f$.
+            \item There exists an $f$-equivariant dominant rational map $\varphi:X\dashrightarrow Z$, 
+            which is the $f$-Iitaka fibration of $R_f$, 
+            such that $0<\dim Z<\dim X$ and $f|_Z$ is $\delta_f$-polarized.
+        \end{enumerate}
+    \end{theorem}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Main Results}
+
+    \begin{corollary}\label{maincor: abelian}
+        KSC holds for any smooth projective variety $X$ admitting an extremal Fano contraction to an abelian variety. 
+    \end{corollary}
+
+
+    \begin{corollary}\label{maincor: pn}
+        KSC holds for any $\mathbb{P}^n$-bundle over either a $Q$-abelian variety or a smooth projective variety of Picard number one. 
+    \end{corollary}
+
+\end{frame}
+
+
+
+
+\end{document}

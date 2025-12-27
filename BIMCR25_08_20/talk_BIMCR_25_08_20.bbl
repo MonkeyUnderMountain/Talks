@@ -1,0 +1,509 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{anyt/global//global/global/global}
+    \entry{BMSZ18}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=1feb71a714f2ddf0521ccfdd89df7332}{%
+           family={Brown},
+           familyi={B\bibinitperiod},
+           given={Morgan\bibnamedelima V.},
+           giveni={M\bibinitperiod\bibinitdelim V\bibinitperiod}}}%
+        {{hash=803b1f58330083ec699f63e7fab249de}{%
+           family={McKernan},
+           familyi={M\bibinitperiod},
+           given={James},
+           giveni={J\bibinitperiod}}}%
+        {{hash=b9af778d23c47e08534701c4121dedec}{%
+           family={Svaldi},
+           familyi={S\bibinitperiod},
+           given={Roberto},
+           giveni={R\bibinitperiod}}}%
+        {{hash=b2f1b42545c9ff969d18166cb7e62036}{%
+           family={Zong},
+           familyi={Z\bibinitperiod},
+           given={Hong\bibnamedelima R.},
+           giveni={H\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \strng{namehash}{630195a8e1db84ecba874a4662e800cc}
+      \strng{fullhash}{2373f2245bfcf0c2f439eded94e10bd0}
+      \strng{fullhashraw}{2373f2245bfcf0c2f439eded94e10bd0}
+      \strng{bibnamehash}{630195a8e1db84ecba874a4662e800cc}
+      \strng{authorbibnamehash}{630195a8e1db84ecba874a4662e800cc}
+      \strng{authornamehash}{630195a8e1db84ecba874a4662e800cc}
+      \strng{authorfullhash}{2373f2245bfcf0c2f439eded94e10bd0}
+      \strng{authorfullhashraw}{2373f2245bfcf0c2f439eded94e10bd0}
+      \field{labelalpha}{BMSZ18}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0012-7094,1547-7398}
+      \field{journaltitle}{Duke Math. J.}
+      \field{label}{BMSZ}
+      \field{number}{5}
+      \field{title}{A geometric characterization of toric varieties}
+      \field{volume}{167}
+      \field{year}{2018}
+      \field{pages}{923\bibrangedash 968}
+      \range{pages}{46}
+      \verb{doi}
+      \verb 10.1215/00127094-2017-0047
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1215/00127094-2017-0047
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1215/00127094-2017-0047
+      \endverb
+    \endentry
+    \entry{Dan20}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=ca80768971d5a081bd2acc7692d9c077}{%
+           family={Dang},
+           familyi={D\bibinitperiod},
+           given={Nguyen-Bac},
+           giveni={N\bibinithyphendelim B\bibinitperiod}}}%
+      }
+      \strng{namehash}{ca80768971d5a081bd2acc7692d9c077}
+      \strng{fullhash}{ca80768971d5a081bd2acc7692d9c077}
+      \strng{fullhashraw}{ca80768971d5a081bd2acc7692d9c077}
+      \strng{bibnamehash}{ca80768971d5a081bd2acc7692d9c077}
+      \strng{authorbibnamehash}{ca80768971d5a081bd2acc7692d9c077}
+      \strng{authornamehash}{ca80768971d5a081bd2acc7692d9c077}
+      \strng{authorfullhash}{ca80768971d5a081bd2acc7692d9c077}
+      \strng{authorfullhashraw}{ca80768971d5a081bd2acc7692d9c077}
+      \field{labelalpha}{Dan20}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0024-6115,1460-244X}
+      \field{journaltitle}{Proc. Lond. Math. Soc. (3)}
+      \field{number}{5}
+      \field{title}{Degrees of iterates of rational maps on normal projective varieties}
+      \field{volume}{121}
+      \field{year}{2020}
+      \field{pages}{1268\bibrangedash 1310}
+      \range{pages}{43}
+      \verb{doi}
+      \verb 10.1112/plms.12366
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1112/plms.12366
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1112/plms.12366
+      \endverb
+    \endentry
+    \entry{DS04}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=fba81d277aabcd594878b245270b597b}{%
+           family={Dinh},
+           familyi={D\bibinitperiod},
+           given={Tien-Cuong},
+           giveni={T\bibinithyphendelim C\bibinitperiod}}}%
+        {{hash=bc9d4e84b12282b28d82d2357cad0ebb}{%
+           family={Sibony},
+           familyi={S\bibinitperiod},
+           given={Nessim},
+           giveni={N\bibinitperiod}}}%
+      }
+      \strng{namehash}{9e1d9d0839f077e7957d68bb65662f1d}
+      \strng{fullhash}{9e1d9d0839f077e7957d68bb65662f1d}
+      \strng{fullhashraw}{9e1d9d0839f077e7957d68bb65662f1d}
+      \strng{bibnamehash}{9e1d9d0839f077e7957d68bb65662f1d}
+      \strng{authorbibnamehash}{9e1d9d0839f077e7957d68bb65662f1d}
+      \strng{authornamehash}{9e1d9d0839f077e7957d68bb65662f1d}
+      \strng{authorfullhash}{9e1d9d0839f077e7957d68bb65662f1d}
+      \strng{authorfullhashraw}{9e1d9d0839f077e7957d68bb65662f1d}
+      \field{extraname}{1}
+      \field{labelalpha}{DS04}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0012-9593}
+      \field{journaltitle}{Ann. Sci. École Norm. Sup. (4)}
+      \field{number}{6}
+      \field{title}{Regularization of currents and entropy}
+      \field{volume}{37}
+      \field{year}{2004}
+      \field{pages}{959\bibrangedash 971}
+      \range{pages}{13}
+      \verb{doi}
+      \verb 10.1016/j.ansens.2004.09.002
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1016/j.ansens.2004.09.002
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1016/j.ansens.2004.09.002
+      \endverb
+    \endentry
+    \entry{DS05}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=fba81d277aabcd594878b245270b597b}{%
+           family={Dinh},
+           familyi={D\bibinitperiod},
+           given={Tien-Cuong},
+           giveni={T\bibinithyphendelim C\bibinitperiod}}}%
+        {{hash=bc9d4e84b12282b28d82d2357cad0ebb}{%
+           family={Sibony},
+           familyi={S\bibinitperiod},
+           given={Nessim},
+           giveni={N\bibinitperiod}}}%
+      }
+      \strng{namehash}{9e1d9d0839f077e7957d68bb65662f1d}
+      \strng{fullhash}{9e1d9d0839f077e7957d68bb65662f1d}
+      \strng{fullhashraw}{9e1d9d0839f077e7957d68bb65662f1d}
+      \strng{bibnamehash}{9e1d9d0839f077e7957d68bb65662f1d}
+      \strng{authorbibnamehash}{9e1d9d0839f077e7957d68bb65662f1d}
+      \strng{authornamehash}{9e1d9d0839f077e7957d68bb65662f1d}
+      \strng{authorfullhash}{9e1d9d0839f077e7957d68bb65662f1d}
+      \strng{authorfullhashraw}{9e1d9d0839f077e7957d68bb65662f1d}
+      \field{extraname}{2}
+      \field{labelalpha}{DS05}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0003-486X,1939-8980}
+      \field{journaltitle}{Ann. of Math. (2)}
+      \field{number}{3}
+      \field{title}{Une borne supérieure pour l'entropie topologique d'une application rationnelle}
+      \field{volume}{161}
+      \field{year}{2005}
+      \field{pages}{1637\bibrangedash 1644}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.4007/annals.2005.161.1637
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.4007/annals.2005.161.1637
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.4007/annals.2005.161.1637
+      \endverb
+    \endentry
+    \entry{GKP16}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=e36f929cb3d21457181bf51a970ea760}{%
+           family={Greb},
+           familyi={G\bibinitperiod},
+           given={Daniel},
+           giveni={D\bibinitperiod}}}%
+        {{hash=93bb6c7c6ee6e0223dbed9b837f2c121}{%
+           family={Kebekus},
+           familyi={K\bibinitperiod},
+           given={Stefan},
+           giveni={S\bibinitperiod}}}%
+        {{hash=3090ff3ced4e52692df2c1bd7b93732e}{%
+           family={Peternell},
+           familyi={P\bibinitperiod},
+           given={Thomas},
+           giveni={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{8744f4c60eca0b2b6d4e20a0e0620419}
+      \strng{fullhash}{8744f4c60eca0b2b6d4e20a0e0620419}
+      \strng{fullhashraw}{8744f4c60eca0b2b6d4e20a0e0620419}
+      \strng{bibnamehash}{8744f4c60eca0b2b6d4e20a0e0620419}
+      \strng{authorbibnamehash}{8744f4c60eca0b2b6d4e20a0e0620419}
+      \strng{authornamehash}{8744f4c60eca0b2b6d4e20a0e0620419}
+      \strng{authorfullhash}{8744f4c60eca0b2b6d4e20a0e0620419}
+      \strng{authorfullhashraw}{8744f4c60eca0b2b6d4e20a0e0620419}
+      \field{labelalpha}{GKP16}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0012-7094,1547-7398}
+      \field{journaltitle}{Duke Math. J.}
+      \field{number}{10}
+      \field{title}{Étale fundamental groups of {K}awamata log terminal spaces, flat sheaves, and quotients of abelian varieties}
+      \field{volume}{165}
+      \field{year}{2016}
+      \field{pages}{1965\bibrangedash 2004}
+      \range{pages}{40}
+      \verb{doi}
+      \verb 10.1215/00127094-3450859
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1215/00127094-3450859
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1215/00127094-3450859
+      \endverb
+    \endentry
+    \entry{KS16a}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=21a366b63203ebb6895b1384d0e5650c}{%
+           family={Kawaguchi},
+           familyi={K\bibinitperiod},
+           given={Shu},
+           giveni={S\bibinitperiod}}}%
+        {{hash=9b408ab4d6636cf13a892a83656d6ccb}{%
+           family={Silverman},
+           familyi={S\bibinitperiod},
+           given={Joseph\bibnamedelima H.},
+           giveni={J\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+      }
+      \strng{namehash}{99a979382b9d89ee31d56336f7df728c}
+      \strng{fullhash}{99a979382b9d89ee31d56336f7df728c}
+      \strng{fullhashraw}{99a979382b9d89ee31d56336f7df728c}
+      \strng{bibnamehash}{99a979382b9d89ee31d56336f7df728c}
+      \strng{authorbibnamehash}{99a979382b9d89ee31d56336f7df728c}
+      \strng{authornamehash}{99a979382b9d89ee31d56336f7df728c}
+      \strng{authorfullhash}{99a979382b9d89ee31d56336f7df728c}
+      \strng{authorfullhashraw}{99a979382b9d89ee31d56336f7df728c}
+      \field{extraname}{1}
+      \field{labelalpha}{KS16}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extraalpha}{1}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0002-9947,1088-6850}
+      \field{journaltitle}{Trans. Amer. Math. Soc.}
+      \field{number}{7}
+      \field{title}{Dynamical canonical heights for {J}ordan blocks, arithmetic degrees of orbits, and nef canonical heights on abelian varieties}
+      \field{volume}{368}
+      \field{year}{2016}
+      \field{pages}{5009\bibrangedash 5035}
+      \range{pages}{27}
+      \verb{doi}
+      \verb 10.1090/tran/6596
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1090/tran/6596
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1090/tran/6596
+      \endverb
+    \endentry
+    \entry{KS16b}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=21a366b63203ebb6895b1384d0e5650c}{%
+           family={Kawaguchi},
+           familyi={K\bibinitperiod},
+           given={Shu},
+           giveni={S\bibinitperiod}}}%
+        {{hash=9b408ab4d6636cf13a892a83656d6ccb}{%
+           family={Silverman},
+           familyi={S\bibinitperiod},
+           given={Joseph\bibnamedelima H.},
+           giveni={J\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+      }
+      \strng{namehash}{99a979382b9d89ee31d56336f7df728c}
+      \strng{fullhash}{99a979382b9d89ee31d56336f7df728c}
+      \strng{fullhashraw}{99a979382b9d89ee31d56336f7df728c}
+      \strng{bibnamehash}{99a979382b9d89ee31d56336f7df728c}
+      \strng{authorbibnamehash}{99a979382b9d89ee31d56336f7df728c}
+      \strng{authornamehash}{99a979382b9d89ee31d56336f7df728c}
+      \strng{authorfullhash}{99a979382b9d89ee31d56336f7df728c}
+      \strng{authorfullhashraw}{99a979382b9d89ee31d56336f7df728c}
+      \field{extraname}{2}
+      \field{labelalpha}{KS16}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extraalpha}{2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0075-4102,1435-5345}
+      \field{journaltitle}{J. Reine Angew. Math.}
+      \field{title}{On the dynamical and arithmetic degrees of rational self-maps of algebraic varieties}
+      \field{volume}{713}
+      \field{year}{2016}
+      \field{pages}{21\bibrangedash 48}
+      \range{pages}{28}
+      \verb{doi}
+      \verb 10.1515/crelle-2014-0020
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1515/crelle-2014-0020
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1515/crelle-2014-0020
+      \endverb
+    \endentry
+    \entry{MZ19}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=1cd1129ecffdb82a5d9008ab59b3a0f9}{%
+           family={Meng},
+           familyi={M\bibinitperiod},
+           given={Sheng},
+           giveni={S\bibinitperiod}}}%
+        {{hash=e2451419841d083b8bb0dbe3c4f930d2}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={De-Qi},
+           giveni={D\bibinithyphendelim Q\bibinitperiod}}}%
+      }
+      \strng{namehash}{a895bdb8088f51f64eb779ab8ba88e01}
+      \strng{fullhash}{a895bdb8088f51f64eb779ab8ba88e01}
+      \strng{fullhashraw}{a895bdb8088f51f64eb779ab8ba88e01}
+      \strng{bibnamehash}{a895bdb8088f51f64eb779ab8ba88e01}
+      \strng{authorbibnamehash}{a895bdb8088f51f64eb779ab8ba88e01}
+      \strng{authornamehash}{a895bdb8088f51f64eb779ab8ba88e01}
+      \strng{authorfullhash}{a895bdb8088f51f64eb779ab8ba88e01}
+      \strng{authorfullhashraw}{a895bdb8088f51f64eb779ab8ba88e01}
+      \field{extraname}{1}
+      \field{labelalpha}{MZ19}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0025-5874,1432-1823}
+      \field{journaltitle}{Math. Z.}
+      \field{number}{3-4}
+      \field{title}{Characterizations of toric varieties via polarized endomorphisms}
+      \field{volume}{292}
+      \field{year}{2019}
+      \field{pages}{1223\bibrangedash 1231}
+      \range{pages}{9}
+      \verb{doi}
+      \verb 10.1007/s00209-018-2160-8
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/s00209-018-2160-8
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/s00209-018-2160-8
+      \endverb
+    \endentry
+    \entry{MZ22}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=1cd1129ecffdb82a5d9008ab59b3a0f9}{%
+           family={Meng},
+           familyi={M\bibinitperiod},
+           given={Sheng},
+           giveni={S\bibinitperiod}}}%
+        {{hash=e2451419841d083b8bb0dbe3c4f930d2}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={De-Qi},
+           giveni={D\bibinithyphendelim Q\bibinitperiod}}}%
+      }
+      \strng{namehash}{a895bdb8088f51f64eb779ab8ba88e01}
+      \strng{fullhash}{a895bdb8088f51f64eb779ab8ba88e01}
+      \strng{fullhashraw}{a895bdb8088f51f64eb779ab8ba88e01}
+      \strng{bibnamehash}{a895bdb8088f51f64eb779ab8ba88e01}
+      \strng{authorbibnamehash}{a895bdb8088f51f64eb779ab8ba88e01}
+      \strng{authornamehash}{a895bdb8088f51f64eb779ab8ba88e01}
+      \strng{authorfullhash}{a895bdb8088f51f64eb779ab8ba88e01}
+      \strng{authorfullhashraw}{a895bdb8088f51f64eb779ab8ba88e01}
+      \field{extraname}{2}
+      \field{labelalpha}{MZ22}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1431-0635,1431-0643}
+      \field{journaltitle}{Doc. Math.}
+      \field{title}{Kawaguchi-{S}ilverman conjecture for certain surjective endomorphisms}
+      \field{volume}{27}
+      \field{year}{2022}
+      \field{pages}{1605\bibrangedash 1642}
+      \range{pages}{38}
+      \verb{doi}
+      \verb 10.4171/dm/x13
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.4171/dm/x13
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.4171/dm/x13
+      \endverb
+    \endentry
+    \entry{MZ23b}{misc}{}{}
+      \name{author}{2}{}{%
+        {{hash=1cd1129ecffdb82a5d9008ab59b3a0f9}{%
+           family={Meng},
+           familyi={M\bibinitperiod},
+           given={Sheng},
+           giveni={S\bibinitperiod}}}%
+        {{hash=e2451419841d083b8bb0dbe3c4f930d2}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={De-Qi},
+           giveni={D\bibinithyphendelim Q\bibinitperiod}}}%
+      }
+      \strng{namehash}{a895bdb8088f51f64eb779ab8ba88e01}
+      \strng{fullhash}{a895bdb8088f51f64eb779ab8ba88e01}
+      \strng{fullhashraw}{a895bdb8088f51f64eb779ab8ba88e01}
+      \strng{bibnamehash}{a895bdb8088f51f64eb779ab8ba88e01}
+      \strng{authorbibnamehash}{a895bdb8088f51f64eb779ab8ba88e01}
+      \strng{authornamehash}{a895bdb8088f51f64eb779ab8ba88e01}
+      \strng{authorfullhash}{a895bdb8088f51f64eb779ab8ba88e01}
+      \strng{authorfullhashraw}{a895bdb8088f51f64eb779ab8ba88e01}
+      \field{extraname}{3}
+      \field{labelalpha}{MZ23}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{Preprint}
+      \field{note}{\href{https://arxiv.org/abs/2309.07005v1}{arXiv:2309.07005v1}}
+      \field{title}{Structures theorems and applications of non-isomorphic surjective endomorphisms of smooth projective threefolds}
+      \field{year}{2023}
+    \endentry
+    \entry{Sil17}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=9b408ab4d6636cf13a892a83656d6ccb}{%
+           family={Silverman},
+           familyi={S\bibinitperiod},
+           given={Joseph\bibnamedelima H.},
+           giveni={J\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+      }
+      \strng{namehash}{9b408ab4d6636cf13a892a83656d6ccb}
+      \strng{fullhash}{9b408ab4d6636cf13a892a83656d6ccb}
+      \strng{fullhashraw}{9b408ab4d6636cf13a892a83656d6ccb}
+      \strng{bibnamehash}{9b408ab4d6636cf13a892a83656d6ccb}
+      \strng{authorbibnamehash}{9b408ab4d6636cf13a892a83656d6ccb}
+      \strng{authornamehash}{9b408ab4d6636cf13a892a83656d6ccb}
+      \strng{authorfullhash}{9b408ab4d6636cf13a892a83656d6ccb}
+      \strng{authorfullhashraw}{9b408ab4d6636cf13a892a83656d6ccb}
+      \field{labelalpha}{Sil17}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1246-7405,2118-8572}
+      \field{journaltitle}{J. Théor. Nombres Bordeaux}
+      \field{number}{1}
+      \field{title}{Arithmetic and dynamical degrees on abelian varieties}
+      \field{volume}{29}
+      \field{year}{2017}
+      \field{pages}{151\bibrangedash 167}
+      \range{pages}{17}
+      \verb{doi}
+      \verb 10.5802/jtnb.973
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.5802/jtnb.973
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.5802/jtnb.973
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

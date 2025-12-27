@@ -1,0 +1,641 @@
+\documentclass[12pt,aspectratio=1610,
+%handout
+]{beamer}
+
+\usepackage{ecnubeamer}
+
+% 图形与排版支持
+\usepackage{graphicx}       % 图形插入支持
+\usepackage{adjustbox}      % 高级图片调整
+\usepackage{framed}         % 边框环境
+\usepackage{amssymb,amsfonts} % 数学符号和字体支持
+% \usepackage{amsthm}         % 定理环境支持
+\usepackage[dvipsnames]{xcolor} % 颜色支持
+\usepackage[most]{tcolorbox} % 彩色盒子环境
+\usepackage{tikz}           % 矢量绘图
+\usepackage{tikz-cd}        % 交换图绘制
+\usepackage[all]{xy}        % 交换图绘制
+%%
+% \usepackage{enumitem}       % 自定义列表标签
+%%
+
+\usepackage[backend=biber,style=alphabetic]{biblatex} % 参考文献管理
+\addbibresource{../../ref.bib}
+
+\usepackage[nameinlink]{cleveref} % 智能引用（自动添加前缀）
+
+% 定理环境定义
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{question}{Question}
+% \renewtheorem{definition}{Definition}
+
+% 中文支持
+% \usepackage[scheme=plain]{ctex} % 中文基础方案
+% \usepackage{fontspec}      % 字体配置
+
+% % Unicode数学字体支持
+% \usepackage{unicode-math}
+% \setmainfont{Times New Roman}
+% \setmathfont{Cambria Math}
+% \setmathfont{STIX Two Math}[range=cal]
+% \setmathfont{Libertinus Math}[range=scr]
+
+\input{../../notation.tex}
+
+% \usepackage{mathabx,epsfig}
+\def\acts{\ \rotatebox[origin=c]{-90}{$\circlearrowright$}\ }
+\def\racts{\ \rotatebox[origin=c]{90}{$\circlearrowleft$}\ }
+\def\dacts{\ \rotatebox[origin=c]{0}{$\circlearrowright$}\ }
+\def\uacts{\ \rotatebox[origin=c]{180}{$\circlearrowright$}\ }
+
+
+\title{Algebraic Dynamics and Dynamical Iitaka Theory}
+% \subtitle{}
+\date{ICCM 2025, January 7, 2026}
+\author{Tianle Yang \\ joint work with Sheng Meng and Long Wang}
+% \institute{School of Mathematical Sciences, East China Normal University}
+
+\titlegraphic{\hfill\includegraphics[height=1.2cm]{img/math-logo.pdf}}
+
+%可以选择school-logo对应学校logo、math-logo对应学院logo
+%学院logo只有英文，因为中文不好看
+
+\begin{document}
+
+{\setbeamertemplate{background}{
+\includegraphics[width=\paperwidth]{img/firstpagebg.jpg}
+%这是美丽的图书馆图片，如果不喜欢可以删掉，变成默认版本
+}
+\maketitle}
+
+
+% \begin{frame}{目录}
+%   \setbeamertemplate{section in toc}[sections numbered]
+%   \tableofcontents%[hideallsubsections]
+% \end{frame}
+
+
+
+
+\section{Algebraic Dynamics}
+
+\begin{frame}{Algebraic Dynamics}
+    We work over an algebraically closed field \(\kkk\) of characteristic zero, usually \(\kkk=\bbC\) or \(\kkk=\overline{\bbQ}\).
+
+    \pause
+
+    The fundamental objects in algebraic dynamics are \((X,f)\), where \(X\) is a variety and \(f:X \dashrightarrow X\) is a dominant rational self-map.
+
+    Here we focus on the case \(X\) is projective and \(f\) is a surjective endomorphism.
+
+    For simplicity, we assume that \(X\) is smooth.
+\end{frame}
+
+\begin{frame}{Dynamical degree and arithmetic degree}
+
+    \begin{definition}[First dynamical degree]\label{def: delta_f}
+        The \textit{first dynamical degree} \(\delta_f\) of \(f\) is defined to be the following limit
+        \[
+        \delta_f := \lim_{n\to\infty}((f^n)^*H\cdot H^{\dim X-1})^{1/n}\in\mathbb{R}_{\geq 1},
+        \]
+        where $H$ is an ample Cartier divisor on \(X\).
+    \end{definition}
+
+    \begin{definition}[Arithmetic degree]\label{def: alpha_f}
+        Let \(h:X(\overline{\bbQ}) \to \bbR\) be the height function associated to an ample divisor on \(X\).
+        Then for every \(x\in X(\kkk)\), we define the \emph{arithmetic degree of \(f\) at \(x\)} by
+        \[
+            \alpha_f(x)=\lim_{n\to\infty} \max\{h(f^n(x)),1\}^{1/n} \in \mathbb{R}_{\geq 1}.
+        \]
+    \end{definition}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{KSC}
+        
+    \begin{conjecture}[{Kawaguchi-Silverman Conjecture $=$ KSC}]\label{conj: ksc} 
+        Let $x \in X(\kkk)$, and suppose that the (forward) orbit $O_f(x) = \{f^n(x)\, |\, n\ge 0\}$  is Zariski dense in $X$.
+        Then the arithmetic degree at $x$ is equal to the dynamical degree of $f$, i.e.,
+        $\alpha_f(x) = \delta_f$.
+    \end{conjecture} 
+
+    \pause
+
+    If we have an equivariant surjective \((X,f) \dashrightarrow (Y,g)\) such that \(\delta_f = \delta_g\), 
+    then KSC for \((Y,g)\) implies KSC for \((X,f)\).
+
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Fibration on algebraic dynamics}
+
+
+    A fibration \(\pi: X \dashrightarrow Y\) is said to be \emph{\(f\)-equivariant} if there is a dominant rational map \(g: Y \dashrightarrow Y\) such that \(\pi \circ f = g \circ \pi\).
+
+    \pause
+
+    Suppose that the fibration \(\pi:X \to Y\) is given by a semiample line bundle \(L\).
+    If \(f^*L \sim qL\) for some \(q\geq 1\), 
+    then \(\pi\) is \(f\)-equivariant by the rigidity lemma and simple intersection theory.
+
+    \pause
+
+    What about the case when \(L\) is only effective or when \(f^*L\) is not proportional to \(L\)?
+
+\end{frame}
+
+
+\section{Dynamical Iitaka Theory}
+
+\begin{frame}{Dynamical Iitaka dimension}
+
+    
+    \begin{definition}[Dynamical Iitaka dimension]
+        Let \(D\) be a Cartier divisor on \(X\).
+        The {\it dynamical $f$-Iitaka dimension} of $D$ is defined as 
+        $$\kappa_f(X,D):=\max\{\kappa(X,D')\,|\,D'=\sum_{i=0}^m a_i (f^*)^iD, a_i\in\bbZ\}.$$
+    \end{definition}
+\end{frame}
+
+\begin{frame}{Dynamical Iitaka fibration}
+
+    \begin{theorem}[{ref. \cite[Theorem 4.6]{MZ23b}}]
+        Suppose that $\kappa_f(X,D)\ge 0$.
+        Then there is an $f$-equivariant dominant rational map 
+        \[ f \acts X \dashrightarrow Y \racts f|_Y \]
+        with \(Y\) normal projective of dimension \(\kappa_f(X,D)\) and \(f|_Y\) a surjective endomorphism.
+    \end{theorem}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{The ramification divisor}
+
+    The \emph{ramification divisor} \(R_f\) is defined by 
+    \[ R_f := \sum_{E} (\operatorname{mult}_E f^*(f(E)) - 1) E \]
+    where the sum runs over all prime divisors \(E\) of \(X\).
+
+    It is effective and satisfies the ramification formula
+    \[ K_X = f^*K_X + R_f. \]
+
+\end{frame}
+
+
+\begin{frame}{Dynamical Iitaka Program for ramification divisor}
+
+    We consider three situations of $\kappa_f(X,R_f)$ and briefly introduce how the dynamical Iitaka theory works.
+    
+    \pause
+
+    \begin{itemize}
+        \item $\kappa_f(X,R_f)=0$. 
+            Then $f^{-1}(\Supp R_f)=\Supp R_f$ and the restriction $$f|_{X\backslash \Supp R_f}\colon X\backslash \Supp R_f\to X\backslash \Supp R_f$$ is (quasi-)\'etale.
+        
+        \pause
+        
+        \item $0<\kappa_f(X,R_f)<\dim X$.
+            We then have an $f$-equivariant dominant rational map
+            $$\varphi_{f,R_f}\colon X\dashrightarrow Y$$
+            with $0<\dim Y=\kappa_f(X,R_f)<\dim X$.
+
+        \pause
+
+        \item $\kappa_f(X,R_f)=\dim X$. 
+            In this case, $R_{f^s}$ is big when $s\gg 1$.
+    \end{itemize}
+
+\end{frame}
+
+
+\section{About our paper}
+
+\begin{frame}
+    \frametitle{Settings}
+
+    We consider the case the \((X,f)\) has admitted an \(f\)-equivariant extremal Fano contraction \(\pi: X \to Y\) such that \(\delta_f > \delta_{f|_Y}\).
+
+    \pause
+
+    Since \(\pi\) is of relative Picard number 1, the general fiber \(X_y\) is Fano and \(\delta_f > \delta_{f|_Y} \geq 1\), the ramification divisor \(R_f\) is non-trivial and \(\pi\)-ample.
+
+    \pause
+
+    Hence we want to use the dynamical Iitaka fibration associated to \(R_f\) to get another \(f\)-equivariant fibration.
+
+    \pause
+
+    Further assume that the base \(Y\) is either an abelian variety or a smooth projective variety of Picard number one, we get our main results.
+
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Main Results}
+
+    \begin{theorem}\label{mainthm: abelian}
+        Let $f$ be a surjective endomorphism of a smooth projective variety $X$ admitting an extremal Fano contraction $\pi:X\to Y$ to an abelian variety $Y$ of positive dimension.
+        Suppose $f$ admits a Zariski dense orbit and $\delta_f>\delta_{f|_Y}$.
+        Then the following hold.
+        \begin{enumerate}
+            \item The ramification divisor satisfies $f^*R_f\equiv \delta_f R_f$.
+            \item There exists an $f$-equivariant dominant rational map $\varphi:X\dashrightarrow Z$, 
+            which is the $f$-Iitaka fibration of $R_f$, 
+            such that $0<\dim Z<\dim X$ and $f|_Z$ is $\delta_f$-polarized.
+        \end{enumerate}
+    \end{theorem}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Main Results}
+
+    \begin{theorem}\label{mainthm: rho1}
+        Let $f$ be a surjective endomorphism of a smooth projective variety $X$ admitting an $f$-equivariant {\bf smooth} extremal Fano contraction $\pi:X\to Y$ with $\rho(Y)=1$.
+        Suppose $\delta_f>\delta_{f|_Y}=1$.
+        Then the following hold.
+        \begin{enumerate}
+            \item The ramification divisor satisfies $f^*R_f\equiv \delta_f R_f$.
+            \item There exists an $f$-equivariant dominant rational map $\varphi:X\dashrightarrow Z$, 
+            which is the $f$-Iitaka fibration of $R_f$, 
+            such that $0<\dim Z<\dim X$ and $f|_Z$ is $\delta_f$-polarized.
+        \end{enumerate}
+    \end{theorem}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Main Results}
+
+    \begin{corollary}\label{maincor: abelian}
+        KSC holds for any smooth projective variety $X$ admitting an extremal Fano contraction to an abelian variety. 
+    \end{corollary}
+
+
+    \begin{corollary}\label{maincor: pn}
+        KSC holds for any $\mathbb{P}^n$-bundle over either a $Q$-abelian variety or a smooth projective variety of Picard number one. 
+    \end{corollary}
+
+\end{frame}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section[引言]{Introduction}
+  \begin{frame}{引言}
+      这个模版基于Beamer的\href{https://ctan.org/pkg/beamertheme-metropolis}{\textbf{METROPOLIS}}包，魔改自overleaf上已有的\href{https://www.overleaf.com/latex/templates/ecnu-beamer-chinese-theme-base-on-metropolis/nqfrwknnzjtj}{模版}，部分参考了潘建瑜教授的\href{https://math.ecnu.edu.cn/~jypan/Latex/index.html}{\LaTeX 模版}（主要是最后的简笔画）。
+
+      笔者叠加了很多华东师大的元素在模版中，因此看起来比较花里胡哨。
+
+      好像没有什么需要特意在引言中交待的，笔者在奇怪的代码中都写了注释。
+
+      本模版目前有一些已知的Bug，在本文档中一一记录。欢迎用户报告新错误。
+
+      如果对模版有疑问，或者对模版有bug反馈，可以用邮件联系笔者：\href{mailto:dsi73@foxmail.com}{dsi73@foxmail.com}。
+  \end{frame}
+
+
+
+
+\section[标题样式]{Titleformats}
+
+  \begin{frame}{Metropolis Titleformats}
+    \textbf{METROPOLIS} 支持四种英文标题样式：
+    \begin{itemize}
+      \item Regular
+      \item \textsc{Smallcaps}
+      \item \textsc{allsmallcaps}
+      \item ALLCAPS
+    \end{itemize}
+    它们既可以每页幻灯片设置，也可以单独设置。
+  \end{frame}
+
+  \subsection[技巧]{Tricks}
+
+  {
+      \metroset{titleformat frame=smallcaps}
+  \begin{frame}{Small caps}
+    这一页幻灯片用了 \texttt{smallcaps} 样式。
+
+    \begin{alertblock}{潜在的问题}
+      请注意，并非所有字体都支持\texttt{smallcaps}样式。例如，若您使用pdf\LaTeX 排版演示文稿并选用Computer Modern Sans Serif字体，所有smallcaps文本都将被替换为Computer Modern Serif字体进行排版。
+    \end{alertblock}
+  \end{frame}
+  }
+
+  {
+  \metroset{titleformat frame=allsmallcaps}
+  \begin{frame}{All small caps}
+  这一页幻灯片用了 \texttt{allsmallcaps} 样式。
+
+    \begin{alertblock}{潜在的问题}
+      由于此样式同样使用了smallcaps，因此会出现与\texttt{smallcaps}标题格式相同的问题。此外，该样式还可能引发其他问题，请参阅相关文档说明。
+
+          经验：只在纯文本标题中使用它。
+
+          这个样式会使右上角的华师大Logo异常上浮，这是一个Bug，待修改。
+    \end{alertblock}
+  \end{frame}
+  }
+
+  {
+  \metroset{titleformat frame=allcaps}
+  \begin{frame}{All caps}
+    这一页幻灯片用了\texttt{allcaps}样式。
+
+      \begin{alertblock}{潜在的问题}
+          该样式虽不如\texttt{allsmallcaps}样式问题严重，但基本存在相同缺陷。若需使用，请查阅相关文档。
+      \end{alertblock}
+  \end{frame}
+  }
+
+
+
+
+\section[元素]{Elements}
+
+  \begin{frame}[fragile]{排版}
+  代码
+  \begin{verbatim}
+  本模版提供\emph{强调}、\alert{标注}与\textbf{粗体}。
+  \end{verbatim}
+
+  编译为
+
+  本模版提供\emph{强调}、\alert{标注}与\textbf{粗体}。
+  \end{frame}
+
+  \begin{frame}{字体}
+    \begin{itemize}
+      \item Regular常规
+      \item \textit{Italic斜体}
+      \item \textsc{SmallCaps小大写}
+      \item \textbf{Bold粗体}
+      \item \textbf{\textit{Bold Italic粗斜体}}
+      \item \textbf{\textsc{Bold SmallCaps粗小大写}}
+      \item \texttt{Monospace等宽}
+      \item \textit{\texttt{Monospace Italic等宽斜体}}
+      \item \texttt{\textbf{Monospace Bold等宽粗体}}
+      \item \texttt{\textbf{\textit{Monospace Bold Italic等宽粗斜体}}}
+    \end{itemize}
+    中文字体中粗斜体的斜体去哪了？这是一个Bug，待修改。
+  \end{frame}
+
+  \begin{frame}{列表}
+    \begin{columns}[T,onlytextwidth]
+      \column{0.33\textwidth}
+        Items
+        \begin{itemize}
+          \item Milk \item Eggs \item Potatos
+        \end{itemize}
+
+      \column{0.33\textwidth}
+        Enumerations
+        \begin{enumerate}
+          \item First, \item Second and \item Last.
+        \end{enumerate}
+
+      \column{0.33\textwidth}
+        Descriptions
+        \begin{description}
+          \item[PowerPoint] Meeh. \item[Beamer] Yeeeha.
+        \end{description}
+    \end{columns}
+  \end{frame}
+  \begin{frame}{动画}
+    \begin{itemize}[<+- | alert@+>]
+      \item \alert<4>{这个\only<4>{真的}很重要！}
+      \item 现在这个很重要。
+      \item 其实这个才重要。
+    \end{itemize}
+  \end{frame}
+  \begin{frame}{图像}
+    \begin{figure}
+      \newcounter{density}
+      \setcounter{density}{20}
+      \begin{tikzpicture}
+        \def\couleur{alerted text.fg}
+        \path[coordinate] (0,0)  coordinate(A)
+                    ++( 90:5cm) coordinate(B)
+                    ++(0:5cm) coordinate(C)
+                    ++(-90:5cm) coordinate(D);
+        \draw[fill=\couleur!\thedensity] (A) -- (B) -- (C) --(D) -- cycle;
+        \foreach \x in {1,...,40}{%
+            \pgfmathsetcounter{density}{\thedensity+20}
+            \setcounter{density}{\thedensity}
+            \path[coordinate] coordinate(X) at (A){};
+            \path[coordinate] (A) -- (B) coordinate[pos=.10](A)
+                                -- (C) coordinate[pos=.10](B)
+                                -- (D) coordinate[pos=.10](C)
+                                -- (X) coordinate[pos=.10](D);
+            \draw[fill=\couleur!\thedensity] (A)--(B)--(C)-- (D) -- cycle;
+        }
+      \end{tikzpicture}
+      \caption{旋转正方形，非常帅。来自
+      \href{http://www.texample.net/tikz/examples/rotated-polygons/}{texample.net}.}
+    \end{figure}
+  \end{frame}
+  \begin{frame}{表格}
+    \begin{table}
+      \caption{世界上的大城市 (来源: Wikipedia)}
+      \begin{tabular}{lr}
+        \toprule
+        City & Population\\
+        \midrule
+        Mexico City & 20,116,842\\
+        Shanghai & 19,210,000\\
+        Peking & 15,796,450\\
+        Istanbul & 14,160,467\\
+        \bottomrule
+      \end{tabular}
+    \end{table}
+  \end{frame}
+  \begin{frame}{框}
+  本模版预设了三种不同的框，可通过可选背景颜色进行样式设置。
+
+    注意：即使是左边的框，也会有白色条状物把背景的logo遮住。这可能不是一个Bug，但仍然需要修改。
+
+    \begin{columns}[T,onlytextwidth]
+      \column{0.5\textwidth}
+        \begin{block}{Default}
+          Block content.
+        \end{block}
+
+        \begin{alertblock}{Alert}
+          Block content.
+        \end{alertblock}
+
+        \begin{exampleblock}{Example}
+          Block content.
+        \end{exampleblock}
+
+      \column{0.5\textwidth}
+
+        \metroset{block=fill}
+
+        \begin{block}{Default}
+          Block content.
+        \end{block}
+
+        \begin{alertblock}{Alert}
+          Block content.
+        \end{alertblock}
+
+        \begin{exampleblock}{Example}
+          Block content.
+        \end{exampleblock}
+
+    \end{columns}
+  \end{frame}
+  \begin{frame}{数学}
+      \metroset{block=fill}
+      \begin{theorem}
+      微积分基本定理：\[\int_a^b f(x)\mathrm{d}x=F(b)-F(a).\]
+      \end{theorem}
+      \begin{proof}
+      令 $g(x)=e^x-x-1$。则当 $x>1$ 时， 有 $g'(x)=e^x-1>0$，
+      因此 $g(x)>g(1)=0$。即有 $x>1$ 时 $e^x>1+x$。
+      \end{proof}
+    \begin{equation*}
+      \mathrm{e} = \lim_{n\to \infty} \left(1 + \frac{1}{n}\right)^n
+    \end{equation*}
+  \end{frame}
+  \begin{frame}{折线图}
+    \begin{figure}
+      \begin{tikzpicture}
+        \begin{axis}[
+          mlineplot,
+          width=0.9\textwidth,
+          height=6cm,
+        ]
+
+          \addplot {sin(deg(x))};
+          \addplot+[samples=100] {sin(deg(2*x))};
+
+        \end{axis}
+      \end{tikzpicture}
+    \end{figure}
+  \end{frame}
+  \begin{frame}{柱状图}
+    \begin{figure}
+      \begin{tikzpicture}
+        \begin{axis}[
+          mbarplot,
+          xlabel={Foot},
+          ylabel={Bar},
+          width=0.9\textwidth,
+          height=6cm,
+        ]
+
+        \addplot plot coordinates {(1, 20) (2, 25) (3, 22.4) (4, 12.4)};
+        \addplot plot coordinates {(1, 18) (2, 24) (3, 23.5) (4, 13.2)};
+        \addplot plot coordinates {(1, 10) (2, 19) (3, 25) (4, 15.2)};
+
+        \legend{lorem, ipsum, dolor}
+
+        \end{axis}
+      \end{tikzpicture}
+    \end{figure}
+  \end{frame}
+  \begin{frame}{引用}
+    \begin{quote}
+      I can eat glass, it doesn't hurt me.
+
+      我能吞下玻璃而不伤身体。
+    \end{quote}
+    注意：这里中文字体理论上应该不一样。这可能不是一个Bug，但仍然需要修改。
+  \end{frame}
+
+  {%
+  \setbeamertemplate{frame footer}{\texttt{73Dsi}的Beamer模版示例}
+  \begin{frame}[fragile]{页脚}
+      \textbf{METROPOLIS} 定义了一个自定义的 beamer 模板，用于在页脚添加文本。可通过以下方式设置：
+      \begin{verbatim}\setbeamertemplate{frame footer}{My custom footer}\end{verbatim}
+  \end{frame}
+  }
+
+  \begin{frame}{文献引用}
+    部分参考文献展示：\cite{knuth92,ConcreteMath,Simpson,Er01,greenwade93}
+  \end{frame}
+
+  \section[总结]{Conclusion}
+
+  \begin{frame}{获取主题}
+
+  访问 \url{github.com/matze/mtheme}以获取\textbf{METROPOLIS}主题。
+
+  要获取本魔改包，可以在微信公众号：\textbf{\texttt{73Dsi}的小站} 下留言。
+
+    本主题遵守
+    \href{http://creativecommons.org/licenses/by-sa/4.0/}{知识共享署名-相同方式共享 4.0 国际许可协议}。
+
+    \begin{center}\ccbysa\end{center}
+    
+  \end{frame}
+
+% \appendix 
+
+  {\setbeamertemplate{background}{}
+  \setbeamercolor{palette primary}{fg=black, bg=yellow}
+  \begin{frame}[standout]
+    Questions?
+
+    
+  \end{frame}
+  }
+
+\begin{frame}[fragile]{页码删除}
+  有时，在文档末尾添加幻灯片以便在观众提问时参考会很有用。
+
+  引用\verb|appendixnumberbeamer|
+  包，并在备用幻灯片前调用\verb|\appendix|。
+
+  \textbf{METROPOLIS}将自动关闭附录中幻灯片的编号和进度条。
+\end{frame}
+
+% \begin{frame}[allowframebreaks]{参考文献}
+
+%   \bibliography{demo}
+%   \bibliographystyle{abbrv}
+
+% \end{frame}
+
+{
+\setbeamertemplate{background}{}
+\begin{frame}
+
+\vspace{0.2\textheight}
+\Huge{\centerline{\textbf{\alert{Thank You!}}}}
+
+\vfill
+\centerline{\includegraphics[width=0.35\textwidth]{img/lib.png}}
+\end{frame}
+}
+\end{document}
