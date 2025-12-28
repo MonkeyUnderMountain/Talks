@@ -1,0 +1,194 @@
+\documentclass{noteformyself}
+
+\newcommand{\Yang}[1]{\textcolor{red}{Yang: #1}}    % 批注命令
+\input{../../Accessories/notation.tex}              % 加载符号定义文件
+\addbibresource{../../Accessories/ref.bib}         % 加载参考文献文件
+
+
+\title{Lecture of talk on ICCM 26 01 07}
+\author{Tianle Yang}
+\date{\today}
+% \authorpage{\href{www.tianleyang.com}{My Homepage}}
+
+% % available on the mode "\sectionlevel=chapter" or "\sectionlevel=book".
+% \setCJKfamilyfont{lxgwwenkai}{LXGW WenKai} % 定义霞鹜文楷，若未安装，请去掉相关代码编译或使用其他字体
+% \coversentence{\CJKfamily{lxgwwenkai}阿巴阿巴阿巴阿巴阿巴阿巴阿巴阿巴!}
+% \coverimage{placeholder.jpg} % 封面图片，
+% \coverlinecolor{red} % 封面线条颜色，available on the mode "\sectionlevel=chapter" or "\sectionlevel=book".
+% \covertitlefont{Allura} % 封面标题字体，available on the mode "\sectionlevel=chapter" or "\sectionlevel=book".
+% \covertextcolor{green} % 封面文字颜色，available on the mode "\sectionlevel=chapter" or "\sectionlevel=book".
+
+
+\def\acts{\ \rotatebox[origin=c]{-90}{$\circlearrowright$}\ }
+\def\racts{\ \rotatebox[origin=c]{90}{$\circlearrowleft$}\ }
+\def\dacts{\ \rotatebox[origin=c]{0}{$\circlearrowright$}\ }
+\def\uacts{\ \rotatebox[origin=c]{180}{$\circlearrowright$}\ }
+
+
+\begin{document}
+
+    \maketitle
+
+    % \section{Algebraic Dynamics}
+
+    \subsection{}
+    
+        Algebraic dynamics is ``dynamics in the setting of algebraic geometry''.
+
+        The base field is an algebraically closed field \(\kkk\) with characteristic \(0\), usually \(\bbC\) or \(\overline{\bbQ}\).
+
+        An \emph{algebraic dynamical system} is a pair \((X,f)\) where \(X\) is a variety over \(\kk\) and \(f\colon X\dashrightarrow X\) is a dominant rational self-map.
+
+        Here we focus on the case that \(X\) is smooth and projective, and \(f\) is an endomorphism.
+
+    \subsection{}
+
+        First we introduce some basic invariants of algebraic dynamical systems.
+
+        \begin{definition}[(The first) dynamical degree]\label{def: delta_f}
+            % The \emph{first dynamical degree} \(\delta_f\) of \(f\) is defined to be the following limit
+            % \[
+            % \delta_f := \lim_{n\to\infty}((f^n)^*H\cdot H^{\dim X-1})^{1/n}\in\mathbb{R}_{\geq 1},
+            % \]
+            % where $H$ is an ample Cartier divisor on \(X\).
+        \end{definition}
+
+        \begin{definition}[Arithmetic degree]\label{def: alpha_f}
+            % Let \(h:X(\overline{\bbQ}) \to \bbR\) be the height function associated to an ample divisor on \(X\).
+            % Then for every \(x\in X(\kkk)\), we define the \emph{arithmetic degree of \(f\) at \(x\)} by
+            % \[
+            %     \alpha_f(x)=\lim_{n\to\infty} \max\{h(f^n(x)),1\}^{1/n} \in \mathbb{R}_{\geq 1}.
+            % \]
+        \end{definition}
+
+        Note that dynamical degree is a global invariant of the map \(f\), while arithmetic degree is a local invariant at the point \(x\).
+        Therefore, it is natural to ask about the relation between these two invariants.
+        Kawaguchi-Silverman conjectured the following.
+
+    \subsection{}
+
+        Suppose that this point \(x\) has a Zariski dense (forward) orbit.
+        Somehow this means that \(x\) can reflect the global dynamics of \(f\) on \(X\).
+        Then we expect that the arithmetic degree at \(x\) equals to the dynamical degree of \(f\).
+        \begin{conjecture}[{Kawaguchi-Silverman Conjecture $=$ KSC}]\label{conj: ksc} 
+            % Let $x \in X(\kkk)$, and suppose that the (forward) orbit $O_f(x) = \{f^n(x)\, |\, n\ge 0\}$  is Zariski dense in $X$.
+            % Then the arithmetic degree at $x$ is equal to the dynamical degree of $f$, i.e.,
+            % $\alpha_f(x) = \delta_f$.
+        \end{conjecture} 
+
+        So far KSC is still wide open in general.
+        A useful method to study KSC is to use equivariant fibrations.
+        That is, we have a dominant rational map \(\pi\colon X \dashrightarrow Y\) and a dominant rational map \(g\colon Y \dashrightarrow Y\) such that the following diagram commutes:
+        \[
+        \begin{tikzcd}
+            X \arrow{r}{f} \arrow[dashed]{d}{\pi} & X \arrow[dashed]{d}{\pi} \\
+            Y \arrow{r}{g} & Y.
+        \end{tikzcd}
+        \]
+        Suppose further that \(\delta_f = \delta_g\).
+        Then KSC for \((X,f)\) can be reduced to KSC for \((Y,g)\).
+        Therefore, it is important to study when such fibrations exist.
+
+    \subsection{}
+
+        A fibration \(\pi: X \dashrightarrow Y\) is said to be \emph{\(f\)-equivariant} if there is a dominant rational map \(g: Y \dashrightarrow Y\) such that \(\pi \circ f = g \circ \pi\).
+
+        Given a fibration \(\pi: X \to Y\) induced by a semiample divisor \(D\).
+        Suppose that \(f^*D \equiv q D\) for some \(q > 0\), then by rigidity lemma and elementary intersection theory, \(\pi\) is \(f\)-equivariant.
+
+        In algebraic geometry, Iitaka fibration is a very important fibration associated to an effective divisor.
+        Therefore, it is natural to ask how to give a dynamical analogue of Iitaka fibration.
+
+    % \section{Dynamical Iitaka Theory}
+    \subsection{}
+
+        Professor Meng and Zhang recently developed a dynamical analogue of Iitaka theory.
+        Here I will briefly introduce some main results in their paper \cite{MZ23b}.
+
+        First we need to extend the definition of Iitaka dimension to the setting of algebraic dynamics.
+
+        \begin{definition}[Dynamical Iitaka dimension]
+            % Let \(D\) be a Cartier divisor on \(X\).
+            % The \emph{dynamical $f$-Iitaka dimension} of $D$ is defined as 
+            % $$\kappa_f(X,D):=\max\left\{\kappa(X,D')\,|\,D'=\sum_{i=0}^m a_i (f^*)^iD, a_i\in\bbZ\right\}.$$
+        \end{definition}
+
+        Then we have the following result about the existence of dynamical Iitaka fibration.
+
+        \begin{theorem}[{ref. \cite[Theorem 4.6]{MZ23b}}]
+            % Suppose that $\kappa_f(X,D)\ge 0$.
+            % Then there is an $f$-equivariant dominant rational map 
+            % \[ f \acts X \dashrightarrow Y \racts f|_Y \]
+            % with \(Y\) normal projective of dimension \(\kappa_f(X,D)\) and \(f|_Y\) a surjective endomorphism.
+        \end{theorem}
+
+    \subsection{}
+
+        Using dynamical Iitaka fibration, we can try to classify algebraic dynamical systems \((X,f)\).
+        In classical theory, varieties are classified according to the Kodaira dimension, i.e., Iitaka dimension of the canonical divisor \(K_X\).
+        In the dynamical setting, we will consider the dynamical Iitaka dimension of the ramification divisor \(R_f = K_X - f^*K_X\).
+        It is always effective.
+        Hence we have the following three cases.
+
+    \subsection{}
+
+        \begin{itemize}
+            \item $\kappa_f(X,R_f)=0$. (log \'etale case)
+                % Then $f^{-1}(\Supp R_f)=\Supp R_f$ and the restriction $$f|_{X\backslash \Supp R_f}\colon X\backslash \Supp R_f\to X\backslash \Supp R_f$$ is (quasi-)\'etale.
+            
+            \item $0<\kappa_f(X,R_f)<\dim X$. (intermediate case)
+                % We then have an $f$-equivariant dominant rational map
+                % $$\varphi_{f,R_f}\colon X\dashrightarrow Y$$
+                % with $0<\dim Y=\kappa_f(X,R_f)<\dim X$.
+
+            \item $\kappa_f(X,R_f)=\dim X$. (big case)
+                % In this case, $R_{f^s}$ is big when $s\gg 1$.
+        \end{itemize}
+
+    % \section{About our paper}
+    \subsection{}
+
+        We consider the case the \((X,f)\) has admitted an \(f\)-equivariant extremal Fano contraction \(\pi: X \to Y\) such that \(\delta_f > \delta_{f|_Y}\).
+
+        Since \(\pi\) is of relative Picard number 1, the general fiber \(X_y\) is Fano and \(\delta_f > \delta_{f|_Y} \geq 1\), the ramification divisor \(R_f\) is non-trivial and \(\pi\)-ample.
+
+        Hence we want to use the dynamical Iitaka fibration associated to \(R_f\) to get another \(f\)-equivariant fibration.
+
+        Further assume that the base \(Y\) is either an abelian variety or a smooth projective variety of Picard number one, we get our main results.
+
+
+        \begin{theorem}[Main Theorem 1]
+            % Let $f$ be a surjective endomorphism of a smooth projective variety $X$ admitting an extremal Fano contraction $\pi:X\to Y$ to an abelian variety $Y$ of positive dimension.
+            % Suppose $f$ admits a Zariski dense orbit and $\delta_f>\delta_{f|_Y}$.
+            % Then the following hold.
+            % \begin{enumerate}
+            %     \item The ramification divisor satisfies $f^*R_f\equiv \delta_f R_f$.
+            %     \item There exists an $f$-equivariant dominant rational map $\varphi:X\dashrightarrow Z$, 
+            %     which is the $f$-Iitaka fibration of $R_f$, 
+            %     such that $0<\dim Z<\dim X$ and $f|_Z$ is $\delta_f$-polarized.
+            % \end{enumerate}
+        \end{theorem}
+
+        \begin{theorem}[Main Theorem 2]
+            % Let $f$ be a surjective endomorphism of a smooth projective variety $X$ admitting an $f$-equivariant {\bf smooth} extremal Fano contraction $\pi:X\to Y$ with $\rho(Y)=1$.
+            % Suppose $\delta_f>\delta_{f|_Y}=1$.
+            % Then the following hold.
+            % \begin{enumerate}
+            %     \item The ramification divisor satisfies $f^*R_f\equiv \delta_f R_f$.
+            %     \item There exists an $f$-equivariant dominant rational map $\varphi:X\dashrightarrow Z$, 
+            %     which is the $f$-Iitaka fibration of $R_f$, 
+            %     such that $0<\dim Z<\dim X$ and $f|_Z$ is $\delta_f$-polarized.
+            % \end{enumerate}
+        \end{theorem}
+
+        As a direct application of our main results, we can prove KSC for such varieties.
+
+        % \begin{corollary}\label{maincor: abelian}
+        %     KSC holds for any smooth projective variety $X$ admitting an extremal Fano contraction to an abelian variety. 
+        % \end{corollary}
+
+        % \begin{corollary}\label{maincor: pn}
+        %     KSC holds for any $\mathbb{P}^n$-bundle over either a $Q$-abelian variety or a smooth projective variety of Picard number one. 
+        % \end{corollary}
+
+\end{document}

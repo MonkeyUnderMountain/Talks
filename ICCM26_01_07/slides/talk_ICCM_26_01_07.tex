@@ -58,28 +58,23 @@
 \end{frame}
 
 \begin{frame}{Dynamical degree and arithmetic degree}
-    % \uncover<+->{\alert<.>{
-        \begin{definition}[First dynamical degree]\label{def: delta_f}
-            The \textit{first dynamical degree} \(\delta_f\) of \(f\) is defined to be the following limit
-            \[
-            \delta_f := \lim_{n\to\infty}((f^n)^*H\cdot H^{\dim X-1})^{1/n}\in\mathbb{R}_{\geq 1},
-            \]
-            where $H$ is an ample Cartier divisor on \(X\).
-        \end{definition}
-    % }}
+    \begin{definition}[(The first) dynamical degree]\label{def: delta_f}
+        The \emph{first dynamical degree} \(\delta_f\) of \(f\) is defined to be the following limit
+        \[
+        \delta_f := \lim_{n\to\infty}((f^n)^*H\cdot H^{\dim X-1})^{1/n}\in\mathbb{R}_{\geq 1},
+        \]
+        where $H$ is an ample Cartier divisor on \(X\).
+    \end{definition}
 
-    % \medskip
     \pause
 
-    % \uncover<+->{\alert<.>{
-        \begin{definition}[Arithmetic degree]\label{def: alpha_f}
-            Let \(h:X(\overline{\bbQ}) \to \bbR\) be the height function associated to an ample divisor on \(X\).
-            Then for every \(x\in X(\kkk)\), we define the \emph{arithmetic degree of \(f\) at \(x\)} by
-            \[
-                \alpha_f(x)=\lim_{n\to\infty} \max\{h(f^n(x)),1\}^{1/n} \in \mathbb{R}_{\geq 1}.
-            \]
-        \end{definition}
-    % }}
+    \begin{definition}[Arithmetic degree]\label{def: alpha_f}
+        Let \(h:X(\overline{\bbQ}) \to \bbR\) be the height function associated to an ample divisor on \(X\).
+        Then for every \(x\in X(\kkk)\), we define the \emph{arithmetic degree of \(f\) at \(x\)} by
+        \[
+            \alpha_f(x)=\lim_{n\to\infty} \max\{h(f^n(x)),1\}^{1/n} \in \mathbb{R}_{\geq 1}.
+        \]
+    \end{definition}
 \end{frame}
 
 \begin{frame}
@@ -92,7 +87,6 @@
             $\alpha_f(x) = \delta_f$.
         \end{conjecture} 
     }
-    % }}
     
     \medskip
 
@@ -114,7 +108,7 @@
 
     \uncover<+->{\alert<.>{
         Suppose that the fibration \(\pi:X \to Y\) is given by a semiample line bundle \(L\).
-        If \(f^*L \sim qL\) for some \(q\geq 1\), 
+        If \(f^*L \equiv qL\) for some \(q > 0\), 
         then \(\pi\) is \(f\)-equivariant by the rigidity lemma and simple intersection theory.
     }}
     \medskip
@@ -132,7 +126,7 @@
     
     \begin{definition}[Dynamical Iitaka dimension]
         Let \(D\) be a Cartier divisor on \(X\).
-        The {\it dynamical $f$-Iitaka dimension} of $D$ is defined as 
+        The \emph{dynamical $f$-Iitaka dimension} of $D$ is defined as 
         $$\kappa_f(X,D):=\max\left\{\kappa(X,D')\,|\,D'=\sum_{i=0}^m a_i (f^*)^iD, a_i\in\bbZ\right\}.$$
     \end{definition}
 

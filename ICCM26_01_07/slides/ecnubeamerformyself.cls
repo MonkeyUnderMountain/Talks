@@ -1,10 +1,10 @@
-% ECNU Beamer Class 
+﻿% ECNU Beamer Class 
 % maintained by Tianle Yang, forked from https://www.texpage.com/zh/template/8c704e26-abab-4864-9174-36e86914c506/
 % !TeX program = xelatex
 % !Bib program = biber
 % !TEX encoding = UTF-8 Unicode
 \NeedsTeXFormat{LaTeX2e}               % Require LaTeX2e
-\ProvidesClass{ecnubeamerformyself}[2025/12/27 v1.01 ECNU Beamer Class] % Provide class metadata
+\ProvidesClass{ecnubeamerformyself}[2025/12/28 v1.00 ECNU Beamer Class] % Provide class metadata
 
 % Pass all unknown options through to beamer
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{beamer}} % Forward options
@@ -72,8 +72,15 @@
 
 
 % --------------------------------------------------------------------------
-% Picture/logo input
+% Define the marcos for image paths
 % --------------------------------------------------------------------------
+% Default image paths (can be overridden in document preamble)
+\providecommand{\ECNUBackgroundImage}{img/bg.pdf}
+\providecommand{\ECNUFrameLogoImage}{img/logo-white.pdf}
+\providecommand{\ECNUFirstPageBG}{img/firstpagebg.jpg}
+\providecommand{\ECNUMathLogo}{img/math-logo.pdf}
+\providecommand{\ECNULibThanks}{img/lib.png}
+
 
 
 
@@ -92,7 +99,7 @@
 
 % Background image filling the slide
 \setbeamertemplate{background}{%
-  \includegraphics[width=\paperwidth,height=\paperheight]{img/bg.pdf} % Background image
+  \includegraphics[width=\paperwidth,height=\paperheight]{\ECNUBackgroundImage} % Background image
 }
 
 % Custom title page: vertical centering and conditional elements
@@ -126,7 +133,7 @@
 % Add a small logo at the top-right of frame titles using absolute positioning
 \addtobeamertemplate{frametitle}{}{%
   \begin{textblock*}{100mm}(.97\textwidth,-1.02cm) % Position block near top-right
-    \includegraphics[height=0.9cm]{img/logo-white.pdf} % Logo file
+    \includegraphics[height=0.9cm]{\ECNUFrameLogoImage} % Logo file
   \end{textblock*}%
 }
 
@@ -177,3 +184,11 @@
 
 \newtcolorboxinmysetting{conjecture}{Conjecture}
 \newtcolorboxinmysetting{question}{Question}
+
+
+
+
+% --------------------------------------------------------------------------
+% Miscellaneous settings
+% --------------------------------------------------------------------------
+\renewcommand{\emph}[1]{\textbf{#1}} % Redefine \emph to use bold text instead of italics
