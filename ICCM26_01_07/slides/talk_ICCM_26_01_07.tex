@@ -70,7 +70,7 @@
 
     \begin{definition}[Arithmetic degree]\label{def: alpha_f}
         Let \(h:X(\overline{\bbQ}) \to \bbR\) be the height function associated to an ample divisor on \(X\).
-        Then for every \(x\in X(\kkk)\), we define the \emph{arithmetic degree of \(f\) at \(x\)} by
+        Then for every \(x\in X(\overline{\bbQ})\), we define the \emph{arithmetic degree of \(f\) at \(x\)} by
         \[
             \alpha_f(x)=\lim_{n\to\infty} \max\{h(f^n(x)),1\}^{1/n} \in \mathbb{R}_{\geq 1}.
         \]
@@ -82,7 +82,7 @@
         
     \uncover<+->{
         \begin{conjecture}[{Kawaguchi-Silverman Conjecture $=$ KSC}]\label{conj: ksc} 
-            Let $x \in X(\kkk)$, and suppose that the (forward) orbit $O_f(x) = \{f^n(x)\, |\, n\ge 0\}$  is Zariski dense in $X$.
+            Let $x \in X(\overline{\bbQ})$, and suppose that the (forward) orbit $O_f(x) = \{f^n(x)\, |\, n\ge 0\}$  is Zariski dense in $X$.
             Then the arithmetic degree at $x$ is equal to the dynamical degree of $f$, i.e.,
             $\alpha_f(x) = \delta_f$.
         \end{conjecture} 
@@ -127,7 +127,7 @@
     \begin{definition}[Dynamical Iitaka dimension]
         Let \(D\) be a Cartier divisor on \(X\).
         The \emph{dynamical $f$-Iitaka dimension} of $D$ is defined as 
-        $$\kappa_f(X,D):=\max\left\{\kappa(X,D')\,|\,D'=\sum_{i=0}^m a_i (f^*)^iD, a_i\in\bbZ\right\}.$$
+        $$\kappa_f(X,D):=\max\left\{\kappa(X,D')\,\middle|\,D'=\sum_{i=0}^m a_i (f^*)^iD, a_i\in\bbZ\right\}.$$
     \end{definition}
 
 \end{frame}
@@ -156,7 +156,7 @@
     
     \uncover<+->{\alert<.>{
         It is effective and satisfies the ramification formula
-        \[ K_X = f^*K_X + R_f. \]
+        \[ R_f = K_X - f^*K_X. \]
     }}
 \end{frame}
 
