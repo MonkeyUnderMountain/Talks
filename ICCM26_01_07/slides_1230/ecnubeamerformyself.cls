@@ -77,7 +77,7 @@
   \vskip1ex%
   \nointerlineskip%
   {\usebeamerfont{frametitle}\usebeamercolor[fg]{frametitle}\insertframetitle\par}%
-  \vskip-1ex%
+  \vskip-1.2ex%
 }
 \setbeamercolor{progress bar}{fg = ECNURed}  % Progress bar color
 
@@ -167,7 +167,7 @@
     title={#2\if\relax\detokenize{##1}\relax\else: ##1\fi}, % Title with optional argument
     sharp corners,                           % Sharp corners
     boxrule=0.4mm,                           % Frame thickness
-    left=1mm, right=1mm, top=0mm, bottom=0mm,% Inner padding
+    left=1mm, right=1mm, top=-2mm, bottom=0mm,% Inner padding
     boxsep=1mm,                              % Separation between content and frame
     before skip=5pt, after skip=5pt,         % Vertical spacing before/after
     breakable,                               % Allow page/slide breaks

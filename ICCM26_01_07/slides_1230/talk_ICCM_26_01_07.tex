@@ -129,8 +129,9 @@
     \node[anchor=south east,xshift=-0.6cm,yshift=0.8cm] at (current page.south east) {%
         \begin{minipage}[c][8cm]{0.44\textwidth}
             {\fontsize{9pt}{11pt}\selectfont
-                \begin{itemize}
-                    \setlength{\itemsep}{6pt}
+                \setbeamertemplate{itemize item}{\Large\textbullet}
+                \begin{itemize}[<+- | alert@+>]
+                    \setlength{\itemsep}{8pt}
                     \setlength{\parskip}{2pt}
                     \item 
                     \(X=\mathbb{P}^2\), 
@@ -181,8 +182,6 @@
     % \(h(f^3(x))=\log30\approx3.4\),
     % \(h(f^4(x))=\log779\approx6.7\),
     % \(h(f^5(x))=\log558441\approx13.2,\ldots\)
-
-
 \end{frame}
 
 
