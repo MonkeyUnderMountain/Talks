@@ -77,7 +77,7 @@
   \vskip1ex%
   \nointerlineskip%
   {\usebeamerfont{frametitle}\usebeamercolor[fg]{frametitle}\insertframetitle\par}%
-  % \vskip0.5ex%
+  \vskip-1ex%
 }
 \setbeamercolor{progress bar}{fg = ECNURed}  % Progress bar color
 
