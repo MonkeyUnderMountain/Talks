@@ -11,10 +11,10 @@
 \input{../notation.tex}
 
 
-\def\acts{\ \rotatebox[origin=c]{-90}{$\circlearrowright$}\ }
-\def\racts{\ \rotatebox[origin=c]{90}{$\circlearrowleft$}\ }
-\def\dacts{\ \rotatebox[origin=c]{0}{$\circlearrowright$}\ }
-\def\uacts{\ \rotatebox[origin=c]{180}{$\circlearrowright$}\ }
+% \def\acts{\ \rotatebox[origin=c]{-90}{$\circlearrowright$}\ }
+% \def\racts{\ \rotatebox[origin=c]{90}{$\circlearrowleft$}\ }
+% \def\dacts{\ \rotatebox[origin=c]{0}{$\circlearrowright$}\ }
+% \def\uacts{\ \rotatebox[origin=c]{180}{$\circlearrowright$}\ }
 
 
 \title{Algebraic Dynamics and Dynamical Iitaka Theory}
@@ -42,6 +42,106 @@
 
 
 \section{KSC and main results}
+
+\begin{frame}
+    \frametitle{Kawaguchi-Silverman Conjecture}
+
+    Work over \(\overline{\bbQ}\).
+    \(X\): smooth projective variety,
+    \(f:X \to X\): surjective endomorphism.
+    \(H\): ample divisor on \(X\).
+    \(h:X(\overline{\bbQ}) \to \bbR_{\geq 1}\): a height function associated to \(H\).
+        
+    \begin{conjecture}[{Kawaguchi-Silverman Conjecture $=$ KSC}]\label{conj: ksc} 
+        If the orbit \(O_f(x):=\{f^n(x)\,|\,n\ge 0\}\) is Zariski dense in \(X\), then
+        \[ \alpha_f(x) = \delta_f.  \]
+    \end{conjecture} 
+
+    here,
+    \[
+        \alpha_f(x) := \lim_{n\to\infty} h(f^n(x))^{1/n},
+    \]
+    arithmetic invariant at \(x\),
+    \[
+        \delta_f := \lim_{n\to\infty} ((f^n)^*H \cdot H^{\dim X - 1})^{1/n},
+    \]
+    geometric invariant of \(f\).
+    
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Three orbit conjecture}
+
+    
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{An example}
+
+    Let \(X = \bbP^2\) and \(f: [x:y:z] \mapsto [x^d:y^d:z^d]\) with \(d \geq 2\).
+
+    \begin{tikzpicture}[scale=1.5]
+        % Draw a simple diagram showing the orbit
+        \node at (0,0) {$[1:2:3]$};
+        \draw[->,thick] (0.8,0) -- (1.8,0);
+        \node at (2.5,0) {$[1:2^d:3^d]$};
+        \draw[->,thick] (3.3,0) -- (4.3,0);
+        \node at (5.2,0) {$[1:2^{d^2}:3^{d^2}]$};
+        \draw[->,thick] (6.3,0) -- (7.3,0);
+        \node at (7.8,0) {$\cdots$};
+        
+        % Add labels
+        \node[above] at (1.3,0.3) {$f$};
+        \node[above] at (3.8,0.3) {$f$};
+        \node[above] at (6.8,0.3) {$f$};
+        \end{tikzpicture}
+
+        use the log coordinates, \([x:y:z] -> [x^2-y^2:xy:z^2]\).
+    
+
+\end{frame}
+
+
+
+\begin{frame}
+    \frametitle{Dynamical Iitaka Theory}
+
+    
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Settings}
+
+    
+
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Main results}
+
+    
+
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Strategies and Techniques}
+
+    
+
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Further problem}
+
+    
+
+\end{frame}
 
 % \begin{frame}{Algebraic Dynamics}
 %     \uncover<+->{\alert<.>{We work over an algebraically closed field \(\kkk\) of characteristic zero, usually \(\kkk=\bbC\) or \(\kkk=\overline{\bbQ}\).}}
@@ -77,189 +177,172 @@
 %     \end{definition}
 % \end{frame}
 
-\begin{frame}
-    \frametitle{Kawaguchi-Silverman Conjecture}
+
+
+% \begin{frame}
+%     \frametitle{Fibration on algebraic dynamics}
+
+%     \uncover<+->{\alert<.>{
+%         A fibration \(\pi: X \dashrightarrow Y\) is said to be \emph{\(f\)-equivariant} if there is a dominant rational map \(g: Y \dashrightarrow Y\) such that \(\pi \circ f = g \circ \pi\).
+%     }}
+
+%     \medskip
+
+%     \uncover<+->{\alert<.>{
+%         Suppose that the fibration \(\pi:X \to Y\) is given by a semiample line bundle \(L\).
+%         If \(f^*L \equiv qL\) for some \(q > 0\), 
+%         then \(\pi\) is \(f\)-equivariant by the rigidity lemma and simple intersection theory.
+%     }}
+%     \medskip
+
+%     \uncover<+->{\alert<.>{
+%         What about the case when \(L\) is only effective or when \(f^*L\) is not proportional to \(L\)?
+%     }}
+% \end{frame}
+
+
+% \section{Dynamical Iitaka Theory}
+
+% \begin{frame}{Dynamical Iitaka dimension}
+
+    
+%     \begin{definition}[Dynamical Iitaka dimension]
+%         Let \(D\) be a Cartier divisor on \(X\).
+%         The \emph{dynamical $f$-Iitaka dimension} of $D$ is defined as 
+%         $$\kappa_f(X,D):=\max\left\{\kappa(X,D')\,\middle|\,D'=\sum_{i=0}^m a_i (f^*)^iD, a_i\in\bbZ\right\}.$$
+%     \end{definition}
+
+% \end{frame}
+
+% \begin{frame}{Dynamical Iitaka fibration}
+
+%     \begin{theorem}[{ref. \cite[Theorem 4.6]{MZ23b}}]
+%         Suppose that $\kappa_f(X,D)\ge 0$.
+%         Then there is an $f$-equivariant dominant rational map 
+%         \[ f \acts X \dashrightarrow Y \racts f|_Y \]
+%         with \(Y\) normal projective of dimension \(\kappa_f(X,D)\) and \(f|_Y\) a surjective endomorphism.
+%     \end{theorem}
+
+% \end{frame}
+
+% \begin{frame}
+%     \frametitle{The ramification divisor}
+
+%     \uncover<+->{\alert<.>{
+%         The \emph{ramification divisor} \(R_f\) is defined by 
+%         \[ R_f := \sum_{E} (\operatorname{mult}_E f^*(f(E)) - 1) E \]
+%         where the sum runs over all prime divisors \(E\) of \(X\).
+%     }}
+
+%     \medskip
+    
+%     \uncover<+->{\alert<.>{
+%         It is effective and satisfies the ramification formula
+%         \[ R_f = K_X - f^*K_X. \]
+%     }}
+% \end{frame}
+
+% \begin{frame}{Dynamical Iitaka Program for ramification divisor}
+
+%     \uncover<+->{\alert<.>{
+%         We consider three situations of $\kappa_f(X,R_f)$ and briefly introduce how the dynamical Iitaka theory works.
+%     }}
+    
+%     \medskip
+
+%     \begin{itemize}[<+- | alert@+>]
+%         \item $\kappa_f(X,R_f)=0$. 
+%             Then $f^{-1}(\Supp R_f)=\Supp R_f$ and the restriction $$f|_{X\backslash \Supp R_f}\colon X\backslash \Supp R_f\to X\backslash \Supp R_f$$ is (quasi-)\'etale.
         
-    % \uncover<+->{
-        \begin{conjecture}[{Kawaguchi-Silverman Conjecture $=$ KSC}]\label{conj: ksc} 
-            If the orbit \(O_f(x):=\{f^n(x)\,|\,n\ge 0\}\) is Zariski dense in \(X\), then
-            \[ \alpha_f(x) = \delta_f.  \]
-        \end{conjecture} 
-    % }
-    
-    % \medskip
+%         \item $0<\kappa_f(X,R_f)<\dim X$.
+%             We then have an $f$-equivariant dominant rational map
+%             $$\varphi_{f,R_f}\colon X\dashrightarrow Y$$
+%             with $0<\dim Y=\kappa_f(X,R_f)<\dim X$.
 
-    % \uncover<+->{\alert<.>{
-    %     If we have an equivariant surjective \((X,f) \dashrightarrow (Y,g)\) such that \(\delta_f = \delta_g\), 
-    %     then KSC for \((Y,g)\) implies KSC for \((X,f)\).
-    % }}
+%         \item $\kappa_f(X,R_f)=\dim X$. 
+%             In this case, $R_{f^s}$ is big when $s\gg 1$.
+%     \end{itemize}
 
-\end{frame}
-
-\begin{frame}
-    \frametitle{Fibration on algebraic dynamics}
-
-    \uncover<+->{\alert<.>{
-        A fibration \(\pi: X \dashrightarrow Y\) is said to be \emph{\(f\)-equivariant} if there is a dominant rational map \(g: Y \dashrightarrow Y\) such that \(\pi \circ f = g \circ \pi\).
-    }}
-
-    \medskip
-
-    \uncover<+->{\alert<.>{
-        Suppose that the fibration \(\pi:X \to Y\) is given by a semiample line bundle \(L\).
-        If \(f^*L \equiv qL\) for some \(q > 0\), 
-        then \(\pi\) is \(f\)-equivariant by the rigidity lemma and simple intersection theory.
-    }}
-    \medskip
-
-    \uncover<+->{\alert<.>{
-        What about the case when \(L\) is only effective or when \(f^*L\) is not proportional to \(L\)?
-    }}
-\end{frame}
+% \end{frame}
 
 
-\section{Dynamical Iitaka Theory}
+% \section{About our paper}
 
-\begin{frame}{Dynamical Iitaka dimension}
+% \begin{frame}
+%     \frametitle{Settings}
 
-    
-    \begin{definition}[Dynamical Iitaka dimension]
-        Let \(D\) be a Cartier divisor on \(X\).
-        The \emph{dynamical $f$-Iitaka dimension} of $D$ is defined as 
-        $$\kappa_f(X,D):=\max\left\{\kappa(X,D')\,\middle|\,D'=\sum_{i=0}^m a_i (f^*)^iD, a_i\in\bbZ\right\}.$$
-    \end{definition}
+%     \uncover<+->{\alert<.>{
+%         We consider the case the \((X,f)\) has admitted an \(f\)-equivariant extremal Fano contraction \(\pi: X \to Y\) such that \(\delta_f > \delta_{f|_Y}\).
+%     }}
 
-\end{frame}
+%     \medskip
 
-\begin{frame}{Dynamical Iitaka fibration}
+%     \uncover<+->{\alert<.>{
+%         Since \(\pi\) is of relative Picard number 1, the general fiber \(X_y\) is Fano and \(\delta_f > \delta_{f|_Y} \geq 1\), the ramification divisor \(R_f\) is non-trivial and \(\pi\)-ample.
+%     }}
 
-    \begin{theorem}[{ref. \cite[Theorem 4.6]{MZ23b}}]
-        Suppose that $\kappa_f(X,D)\ge 0$.
-        Then there is an $f$-equivariant dominant rational map 
-        \[ f \acts X \dashrightarrow Y \racts f|_Y \]
-        with \(Y\) normal projective of dimension \(\kappa_f(X,D)\) and \(f|_Y\) a surjective endomorphism.
-    \end{theorem}
+%     \medskip
 
-\end{frame}
+%     \uncover<+->{\alert<.>{
+%         Hence we want to use the dynamical Iitaka fibration associated to \(R_f\) to get another \(f\)-equivariant fibration.
+%     }}
 
-\begin{frame}
-    \frametitle{The ramification divisor}
+%     \medskip
 
-    \uncover<+->{\alert<.>{
-        The \emph{ramification divisor} \(R_f\) is defined by 
-        \[ R_f := \sum_{E} (\operatorname{mult}_E f^*(f(E)) - 1) E \]
-        where the sum runs over all prime divisors \(E\) of \(X\).
-    }}
+%     \uncover<+->{\alert<.>{
+%         Further assume that the base \(Y\) is either an abelian variety or a smooth projective variety of Picard number one, we get our main results.
+%     }}
 
-    \medskip
-    
-    \uncover<+->{\alert<.>{
-        It is effective and satisfies the ramification formula
-        \[ R_f = K_X - f^*K_X. \]
-    }}
-\end{frame}
+% \end{frame}
 
-\begin{frame}{Dynamical Iitaka Program for ramification divisor}
+% \begin{frame}
+%     \frametitle{Main Results}
 
-    \uncover<+->{\alert<.>{
-        We consider three situations of $\kappa_f(X,R_f)$ and briefly introduce how the dynamical Iitaka theory works.
-    }}
-    
-    \medskip
+%     \begin{theorem}\label{mainthm: abelian}
+%         Let $f$ be a surjective endomorphism of a smooth projective variety $X$ admitting an extremal Fano contraction $\pi:X\to Y$ to an abelian variety $Y$ of positive dimension.
+%         Suppose $f$ admits a Zariski dense orbit and $\delta_f>\delta_{f|_Y}$.
+%         Then the following hold.
+%         \begin{enumerate}
+%             \item The ramification divisor satisfies $f^*R_f\equiv \delta_f R_f$.
+%             \item There exists an $f$-equivariant dominant rational map $\varphi:X\dashrightarrow Z$, 
+%             which is the $f$-Iitaka fibration of $R_f$, 
+%             such that $0<\dim Z<\dim X$ and $f|_Z$ is $\delta_f$-polarized.
+%         \end{enumerate}
+%     \end{theorem}
 
-    \begin{itemize}[<+- | alert@+>]
-        \item $\kappa_f(X,R_f)=0$. 
-            Then $f^{-1}(\Supp R_f)=\Supp R_f$ and the restriction $$f|_{X\backslash \Supp R_f}\colon X\backslash \Supp R_f\to X\backslash \Supp R_f$$ is (quasi-)\'etale.
-        
-        \item $0<\kappa_f(X,R_f)<\dim X$.
-            We then have an $f$-equivariant dominant rational map
-            $$\varphi_{f,R_f}\colon X\dashrightarrow Y$$
-            with $0<\dim Y=\kappa_f(X,R_f)<\dim X$.
+% \end{frame}
 
-        \item $\kappa_f(X,R_f)=\dim X$. 
-            In this case, $R_{f^s}$ is big when $s\gg 1$.
-    \end{itemize}
+% \begin{frame}
+%     \frametitle{Main Results}
 
-\end{frame}
+%     \begin{theorem}\label{mainthm: rho1}
+%         Let $f$ be a surjective endomorphism of a smooth projective variety $X$ admitting an $f$-equivariant {\bf smooth} extremal Fano contraction $\pi:X\to Y$ with $\rho(Y)=1$.
+%         Suppose $\delta_f>\delta_{f|_Y}=1$.
+%         Then the following hold.
+%         \begin{enumerate}
+%             \item The ramification divisor satisfies $f^*R_f\equiv \delta_f R_f$.
+%             \item There exists an $f$-equivariant dominant rational map $\varphi:X\dashrightarrow Z$, 
+%             which is the $f$-Iitaka fibration of $R_f$, 
+%             such that $0<\dim Z<\dim X$ and $f|_Z$ is $\delta_f$-polarized.
+%         \end{enumerate}
+%     \end{theorem}
 
+% \end{frame}
 
-\section{About our paper}
+% \begin{frame}
+%     \frametitle{Main Results}
 
-\begin{frame}
-    \frametitle{Settings}
+%     \begin{corollary}\label{maincor: abelian}
+%         KSC holds for any smooth projective variety $X$ admitting an extremal Fano contraction to an abelian variety. 
+%     \end{corollary}
 
-    \uncover<+->{\alert<.>{
-        We consider the case the \((X,f)\) has admitted an \(f\)-equivariant extremal Fano contraction \(\pi: X \to Y\) such that \(\delta_f > \delta_{f|_Y}\).
-    }}
+%     \vspace*{1cm}
 
-    \medskip
+%     \begin{corollary}\label{maincor: pn}
+%         KSC holds for any $\mathbb{P}^n$-bundle over either a $Q$-abelian variety or a smooth projective variety of Picard number one. 
+%     \end{corollary}
 
-    \uncover<+->{\alert<.>{
-        Since \(\pi\) is of relative Picard number 1, the general fiber \(X_y\) is Fano and \(\delta_f > \delta_{f|_Y} \geq 1\), the ramification divisor \(R_f\) is non-trivial and \(\pi\)-ample.
-    }}
-
-    \medskip
-
-    \uncover<+->{\alert<.>{
-        Hence we want to use the dynamical Iitaka fibration associated to \(R_f\) to get another \(f\)-equivariant fibration.
-    }}
-
-    \medskip
-
-    \uncover<+->{\alert<.>{
-        Further assume that the base \(Y\) is either an abelian variety or a smooth projective variety of Picard number one, we get our main results.
-    }}
-
-\end{frame}
-
-\begin{frame}
-    \frametitle{Main Results}
-
-    \begin{theorem}\label{mainthm: abelian}
-        Let $f$ be a surjective endomorphism of a smooth projective variety $X$ admitting an extremal Fano contraction $\pi:X\to Y$ to an abelian variety $Y$ of positive dimension.
-        Suppose $f$ admits a Zariski dense orbit and $\delta_f>\delta_{f|_Y}$.
-        Then the following hold.
-        \begin{enumerate}
-            \item The ramification divisor satisfies $f^*R_f\equiv \delta_f R_f$.
-            \item There exists an $f$-equivariant dominant rational map $\varphi:X\dashrightarrow Z$, 
-            which is the $f$-Iitaka fibration of $R_f$, 
-            such that $0<\dim Z<\dim X$ and $f|_Z$ is $\delta_f$-polarized.
-        \end{enumerate}
-    \end{theorem}
-
-\end{frame}
-
-\begin{frame}
-    \frametitle{Main Results}
-
-    \begin{theorem}\label{mainthm: rho1}
-        Let $f$ be a surjective endomorphism of a smooth projective variety $X$ admitting an $f$-equivariant {\bf smooth} extremal Fano contraction $\pi:X\to Y$ with $\rho(Y)=1$.
-        Suppose $\delta_f>\delta_{f|_Y}=1$.
-        Then the following hold.
-        \begin{enumerate}
-            \item The ramification divisor satisfies $f^*R_f\equiv \delta_f R_f$.
-            \item There exists an $f$-equivariant dominant rational map $\varphi:X\dashrightarrow Z$, 
-            which is the $f$-Iitaka fibration of $R_f$, 
-            such that $0<\dim Z<\dim X$ and $f|_Z$ is $\delta_f$-polarized.
-        \end{enumerate}
-    \end{theorem}
-
-\end{frame}
-
-\begin{frame}
-    \frametitle{Main Results}
-
-    \begin{corollary}\label{maincor: abelian}
-        KSC holds for any smooth projective variety $X$ admitting an extremal Fano contraction to an abelian variety. 
-    \end{corollary}
-
-    \vspace*{1cm}
-
-    \begin{corollary}\label{maincor: pn}
-        KSC holds for any $\mathbb{P}^n$-bundle over either a $Q$-abelian variety or a smooth projective variety of Picard number one. 
-    \end{corollary}
-
-\end{frame}
+% \end{frame}
 
 
 % ----------------------------------------------------------
