@@ -204,4 +204,12 @@
 % --------------------------------------------------------------------------
 % Miscellaneous settings
 % --------------------------------------------------------------------------
+% Reduce vertical space around displayed equations for beamer slides.
+% Applied at \AtBeginDocument so document classes/themes can't override it.
+\AtBeginDocument{%
+  \setlength{\abovedisplayskip}{0pt}%
+  \setlength{\belowdisplayskip}{0pt}%
+  \setlength{\abovedisplayshortskip}{0pt}%
+  \setlength{\belowdisplayshortskip}{0pt}%
+}
 \renewcommand{\emph}[1]{\textbf{#1}} % Redefine \emph to use bold text instead of italics
