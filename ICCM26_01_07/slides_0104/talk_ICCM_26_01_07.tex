@@ -1,0 +1,677 @@
+\documentclass[12pt,aspectratio=1610]{ecnubeamerformyself}
+
+% Override image paths (set here so the .cls keeps defaults)
+% \renewcommand{\ECNUBackgroundImage}{img/bg.pdf}
+% \renewcommand{\ECNUFrameLogoImage}{img/logo-white.pdf}
+% \renewcommand{\ECNUFirstPageBG}{img/firstpagebg.jpg}
+% \renewcommand{\ECNUMathLogo}{img/math-logo.pdf}
+% \renewcommand{\ECNULibThanks}{img/lib.png}
+
+\addbibresource{../ref.bib}
+\input{../../Accessories/notation.tex}
+\usetikzlibrary{arrows.meta,calc,positioning}
+\usepackage{pifont}  % 提供 \ding 命令
+
+\def\acts{\ \rotatebox[origin=c]{-90}{$\circlearrowright$}\ }
+\def\racts{\ \rotatebox[origin=c]{90}{$\circlearrowleft$}\ }
+% \def\dacts{\ \rotatebox[origin=c]{0}{$\circlearrowright$}\ }
+% \def\uacts{\ \rotatebox[origin=c]{180}{$\circlearrowright$}\ }
+
+\title{Algebraic Dynamics and Dynamical Iitaka Theory}
+% \subtitle{}
+\date{Undergraduate Forum, ICCM 2025, January 7, 2026}
+\author{{\Large Tianle Yang} \texorpdfstring{\\}{,} based on the joint work with Sheng Meng and Long Wang}
+
+
+% Institute logo on the title page
+\titlegraphic{\hfill\includegraphics[height=1.2cm]{\ECNUMathLogo}}
+
+
+\begin{document}
+
+% First page with different background
+{
+    \setbeamertemplate{background}{
+        \includegraphics[width=\paperwidth,height=\paperheight]{\ECNUFirstPageBG}
+    }
+    \maketitle
+}
+
+
+% ----------------------------------------------------------
+
+
+\begin{frame}{Kawaguchi-Silverman Conjecture}
+
+    \vspace{0.3em}
+        
+    % \(/\overline{\bbQ}\). \(X\) smooth projective variety; \(f:X \to X\) surjective endomorphism.
+    % Let \(X\) be a smooth projective variety over \(\overline{\bbQ}\) and \(f:X \to X\) a surjective endomorphism.
+    Smooth projective variety \(X / \overline{\bbQ}\); surjective endomorphism \(f:X \to X\).
+
+    \pause
+    \vspace{0.2em}
+
+    \begin{conjecture}[{Kawaguchi-Silverman Conjecture $=$ KSC}]\label{conj: ksc} 
+        If the orbit \(O_f(x):=\{f^n(x)\,|\,n\ge 0\}\) is Zariski dense in \(X\), then the dynamical degree equals the arithmetic degree, i.e.,
+        % \begin{center}
+        %     \textcolor{cyan}{dynamical degree} \(=\) \textcolor{magenta}{arithmetic degree}: \(\textcolor{cyan}{\delta_f} = \textcolor{magenta}{\alpha_f(x)}\).
+        % \end{center}
+        \[ \textcolor<4->{cyan}{\delta_f} = \textcolor<5->{magenta}{\alpha_f(x)}. \]
+    \end{conjecture} 
+
+    \pause
+    \vspace{0.2em}
+
+    Fix an ample line bundle \(H\) and \(h\geq 1\) a height function associated to \(H\).
+
+    % \vspace{0.5em}
+    \begin{center}
+    \begin{tabular}{cll}
+        \visible<4->{
+            \textbullet & \textcolor{cyan}{dynamical degree}: & \\
+                & \(\displaystyle \textcolor{cyan}{\delta_f} := \lim_{n\to\infty} ((f^n)^*H \cdot H^{\dim X - 1})^{\frac{1}{n}}\) 
+                & \textcolor{cyan}{geometric, global} invariant of \(f\). \\
+        }
+        \visible<5->{
+            \textbullet & \textcolor{magenta}{arithmetic degree}: & \\
+                & \(\displaystyle \textcolor{magenta}{\alpha_f(x)} := \lim_{n\to\infty} h(f^n(x))^{\frac{1}{n}}\)
+                & \textcolor{magenta}{arithmetic, local} invariant at \(x\); \\
+        }
+    \end{tabular}
+    \end{center}
+
+    \vspace{-0.7cm}
+    \visible<6->{
+        \begin{center}
+            \textbf{Slogan:} {\Large\textcolor{cyan}{GEOMETRY}} controls {\Large\textcolor{magenta}{ARITHMETIC}}.
+        \end{center}
+    }
+    
+\end{frame}
+
+
+\begin{frame}{An example}
+    \vskip-1em
+    \begin{tikzpicture}
+        % axes from -4 to 4 with grid and ticks
+        \draw[help lines, gray!20] (-3.5,-2.5) grid (4.5,4.5);
+        \draw[->, thick] (-3.5,0) -- (4.5,0) node[right] {$x$};
+        \draw[->, thick] (0,-2.5) -- (0,4.5) node[above] {$y$};
+        \foreach \pos/\labels in {-3/{-1000}, -2/{-100}, -1/{-10}, 1/{10}, 2/{100}, 3/{1000}, 4/{10000}}{
+            \draw (\pos,0.06) -- (\pos,-0.06) node[below,text=gray!50,font=\scriptsize] {\labels};
+        }
+        \foreach \pos/\labels in {-2/{0.01}, -1/{0.1}, 1/{10}, 2/{100}, 3/{1000}, 4/{10000}}{
+            \draw (0.06,\pos) -- (-0.06,\pos) node[left,text=gray!50,font=\scriptsize] {\labels};
+        }
+
+        % draw the orbit points and arrows between them
+        
+        % define named coordinates for the orbit points
+        \coordinate (p0) at (0.05,0.301);
+        \coordinate (p1) at (-0.477,0.301);
+        \coordinate (p2) at (0.699,-0.778);
+        \coordinate (p3) at (-1.041,-1.477);
+        \coordinate (p4) at (-2.892,2.342);
+        \coordinate (p5) at (5.747,5.234);
+
+        % draw the filled points
+        \foreach \p in {p0,p1,p2,p3,p4,p5}{
+            \fill[red!80] (\p) circle (0.08);
+        }
+
+        % draw labels for the points
+        \node[above right,font=\scriptsize,text=red!80] at (p0) {\([1:2:1]\)};
+        \node[above left,font=\scriptsize,text=red!80] at (p1) {\([-3:2:1]\)};
+        \node[below right,font=\scriptsize,text=red!80] at (p2) {\([5:-6:1]\)};
+        \node[below left,font=\scriptsize,text=red!80] at (p3) {\([-11:-30:1]\)};
+        \node[right,font=\scriptsize,text=red!80] at (p4) {\([-779:220:1]\)};
+        \node[above right,font=\scriptsize,text=red!80] at (p5) {\([558441:171380:1]\)};
+
+        % draw arrows between named points
+        \draw[|->,thick,orange,shorten <=0.09cm,shorten >=0.09cm] (p0) -- (p1);
+        \draw[|->,thick,orange,shorten <=0.09cm,shorten >=0.09cm] (p1) -- (p2);
+        \draw[|->,thick,orange,shorten <=0.09cm,shorten >=0.09cm] (p2) -- (p3);
+        \draw[|->,thick,orange,shorten <=0.09cm,shorten >=0.09cm] (p3) -- (p4);
+        \draw[|->,thick,orange,shorten <=0.09cm,shorten >=0.09cm] (p4) -- (p5);
+
+    \end{tikzpicture}
+
+    \begin{tikzpicture}[remember picture,overlay]
+    \node[anchor=south east,xshift=-0.6cm,yshift=0.8cm] at (current page.south east) {%
+        \begin{minipage}[c][8cm]{0.44\textwidth}
+            {\fontsize{9pt}{11pt}\selectfont
+                \setbeamertemplate{itemize item}{\Large\textbullet}
+                \begin{itemize}[<+- | alert@+>]
+                    \setlength{\itemsep}{8pt}
+                    \setlength{\parskip}{2pt}
+                    \item 
+                    \(X=\mathbb{P}^2\), 
+                    
+                    \(f:[x:y:z]\mapsto[x^2-y^2:xy:z^2]\),
+                    
+                    \(x = [1:2:1]\).
+
+                    \item \(f^*H \sim 2H\) \(\Rightarrow\) \(\delta_f = 2\).
+                    
+                    \item 
+                    \begin{tabular}{r l l}
+                    \(n\) & \(h(f^n(x))\)   &   \\ \hline
+                    \(0\) & \(\log 2\)      & \approx \(0.7\) \\
+                    \(1\) & \(\log 3\)      & \approx \(1.1\) \\
+                    \(2\) & \(\log 6\)      & \approx \(1.8\) \\
+                    \(3\) & \(\log 30\)     & \approx \(3.4\) \\
+                    \(4\) & \(\log 779\)    & \approx \(6.7\) \\
+                    \(5\) & \(\log 558441\) & \approx \(13.2\)
+                    \end{tabular}
+
+                    \item It is expected that \(\alpha_f(x) = 2\).
+
+                \end{itemize}
+            }
+        \end{minipage}
+    };
+    \end{tikzpicture}
+
+    % Let \(X=\mathbb{P}^2\) and \(f:[x:y:z]\mapsto[x^2-y^2:xy:z^2]\).
+
+    % \(x=[1:2:1]\) has a Zariski dense orbit and \(\delta_f=2\).
+    % \(f(x)=[-3:2:1]\), 
+    % \(f^2(x)=[5:-6:1]\), 
+    % \(f^3(x)=[-11:-30:1]\), 
+    % \(f^4(x)=[-779:220:1]\), 
+    % \(f^5(x)=[558441:171380:1]\), 
+
+    % log10 coordinates of the orbit points:
+    % \((0,0.301),(-0.477,0.301),(0.699,-0.778),(-1.041,-1.477),(-2.892,2.342),(5.747,5.234),\ldots\)
+
+    % Heights:
+    % \(h(x)=\log\max\{|1|,|2|,|1|\}=\log2\approx0.7\),
+    % \(h(f(x))=\log3\approx1.1\),
+    % \(h(f^2(x))=\log6\approx1.8\),
+    % \(h(f^3(x))=\log30\approx3.4\),
+    % \(h(f^4(x))=\log779\approx6.7\),
+    % \(h(f^5(x))=\log558441\approx13.2,\ldots\)
+\end{frame}
+
+
+% \begin{frame}[c]{Three orbit conjectures}
+
+%     \vspace{0.5cm}
+%     \begin{tikzpicture}[>=Stealth, every node/.style={font=\small}, scale=0.7, transform shape]
+%         % nodes
+%         \node[draw=blue!60, fill=blue!6, thick, circle, minimum size=2.5cm, align=center] (ZDO) at (-2.5,0) {Zariski Dense\\ Orbit conjecture\\ \textcolor{blue!70!black}{(ZDO)}};
+%         \node[draw=green!60, fill=green!6, thick, circle, minimum size=2.5cm, align=center] (DML) at (2.5,0) {Dynamical\\ Mordell-Lang\\ conjecture \textcolor{green!70!black}{(DML)}};
+%         \node[draw=red!70, fill=red!6, thick, circle, minimum size=2.5cm, align=center] (KSC) at (0,-3.7) {\textbf{Kawaguchi-}\\\textbf{Silverman}\\ \textbf{conjecture} \textcolor{red!70!black}{\textbf{(KSC)}}};
+
+%         % text labels above circles
+%         \node[above=0.2cm of ZDO,font=\small,blue!50!gray,align=center] {[Bell-Ghioca-Tucker,\\Xie,Xie-Yang,\dots]};
+%         \node[above=0.2cm of DML,font=\small,green!50!gray,align=center] {[Amerik,Amerik-Campana,\\Jia-Xie-Zhang,\\Matsuzawa-Xie,Xie,\dots]};
+%         \node[below=0.2cm of KSC,font=\small,red!50!gray,align=center] {[Kawaguchi-Silverman,\\Lesieutre-Santriano,\\Matsuzawa-Sano-Shibata,\\Meng-Zhang,Meng-Zhong,Xie,\dots]};
+
+%         % curved association arrows
+%         \draw[-, thick, orange] (ZDO) to[out=60,in=120] (DML);
+%         \draw[-, thick, orange] (DML) to[out=-60,in=-20] (KSC);
+%         \draw[-, thick, orange] (KSC) to[out=-160,in=-120] (ZDO);
+
+        
+%     \end{tikzpicture}
+
+%     \begin{tikzpicture}[remember picture,overlay]
+%     \node[anchor=east,xshift=-0.6cm] at (current page.east) {%
+%         \begin{minipage}[t][0.9\textheight]{0.55\textwidth}
+%             \only<1-3>{
+%                 \vspace{0.5cm}
+%                 \textcolor{red!70!black}{
+%                     The KSC relates invariants in arithmetic dynamics and algebraic dynamics.
+%                 }
+%             }
+
+%             \only<2-3>{
+%                 \vspace{0.5cm}
+%                 \textcolor{green!70!black}{
+%                     The DML illustrate a periodic phenomenon of orbits intersecting subvarieties.
+%                 }
+%             }
+
+%             \only<3>{
+%                 \vspace{0.5cm}
+%                 \textcolor{blue!70!black}{
+%                     The ZDO gives a first classification of endomorphisms according to orbit structures: 
+%                     either 
+%                     \[ \exists x\  \text{with}\  \overline{O_f(x)} = X, \]
+%                     or \(f\) satisfies the first integral.
+%                 }
+%             }
+%         \end{minipage}
+%     };
+%     \end{tikzpicture}
+    
+% \end{frame}
+
+
+\begin{frame}{Known cases for KSC}
+
+    \vspace{0.3cm}
+    \visible<1->{Projective surfaces                               \hfill [Matsuzawa-Sano-Shibata18,Meng-Zhang22];\\
+    Quasi-projective surfaces (assume DML)            \hfill [Wang23];\\
+    Birational map on surfaces                        \hfill [Xie24];\\
+    Smooth projective 3folds with \(\deg f>1\)        \hfill [Meng-Zhang23];\\}
+    \vspace{1em}
+    \visible<2->{\alert<4>{Abelian varieties                                 \hfill [Kawaguchi-Silverman16];}\\
+    Hyperk\"ahler manifolds                           \hfill [Lesieutre-Santriano21];\\
+    Mori dream spaces                                 \hfill [Matsuzawa20];\\}
+    \vspace{1em}
+    \visible<3->{\alert<4>{Polarized endomorphisms                           \hfill [Kawaguchi-Silverman14];}\\
+    \alert<4>{Int-amplified endomorphisms                       \hfill [Meng-Zhong24];\\}
+    \vspace{1em}
+    \(\cdots\)}
+
+\end{frame}
+
+
+\begin{frame}{Main results}
+
+    \vspace{0.5em}
+
+    \only<1-7>{
+        % Settings:
+        \textbf{Special Fano fibration case (*)} (as the finial output of MMP):\\
+        {\fontsize{10pt}{12pt}\selectfont
+            \(X \xrightarrow{\pi} Y\)  smooth Fano fibration of relative picard number (\textcolor{green!60!black}{eg. \(\bbP^n\)-bundles}) over 
+            \vspace{-0.8em}
+            \alert<3>{\begin{itemize}
+                \item[(*1)] an abelian variety; or
+                \item[(*2)] a smooth projective variety of picard number one.
+            \end{itemize}}
+            \vspace{-1em}
+        }
+
+        \only<6-7>{\alert<6>{
+            \vspace{0.2em}
+            \textbf{Dynamical conditions (\(\dagger\))}: \\
+            {\fontsize{10pt}{12pt}\selectfont
+                The fibration \((X,f)\xrightarrow{\pi} (Y,g)\) does not preserve the dynamical degree: \(\delta_f > \delta_g\);\\
+                If in the case (*2), then we require \(\delta_g = 1\).\\
+            }
+        }}
+    }
+
+    \only<2-5>{
+        \vspace{1em}
+        \begin{theorem}[{[Meng-Wang-Y]}]\label{thm: mainthm}
+            KSC holds for \(X\) in the special Fano fibration case (*).
+        \end{theorem}
+    }
+
+    \only<3>{
+        \vspace{0.5em}
+        Generalize the following early results:
+        \begin{itemize}
+            \item {[Li-Matsuzawa 21]}, projective bundles over \alert{smooth Fano varieties of Picard number one};
+            \item {[Nasserden-Zotine 21]}, projective bundles over \alert{elliptic curves}.
+        \end{itemize}
+    }
+
+    \only<4-5>{
+        \vspace{0.5em}
+        Sketch of idea:\\
+    }
+
+    \only<4>{
+        After iteration, the the dynamics \(f \acts X\) descends to \(g \acts Y\).
+        If \(\delta_f = \delta_g\), then 
+        \vspace{-0.6em}
+        \begin{center}
+            \begin{tabular}{@{}l@{}}KSC for abelian varieties \\ or polarized endomorphisms\end{tabular} \(\implies\) KSC for \((Y,g)\) \(\implies\) KSC for \((X,f)\). 
+        \end{center}
+    }
+
+    \only<5>{In the case (*2), if \(\delta_g > 1\), then \(f\) is int-amplified and KSC holds by {[Meng-Zhong24]}.}
+
+
+    \only<8>{
+        \vspace{2em}
+    }
+
+    \only<7-8>{
+        \begin{theorem}[{New Fibration, [Meng-Wang-Y]}]\label{thm: mainthm2}
+            In the special Fano fibration case (*) with dynamical conditions (\(\dagger\)), there exists an equivariant fibrations
+            \[ f \acts X \overset{\varphi_{f,R_f}}{---\!\twoheadrightarrow} Z \racts h \]
+            with \(\dim Z>0\) and \(h\) is \(\delta_f\)-polarized (in particular, \(\delta_h = \delta_f\)).
+        \end{theorem}
+    }
+
+    \only<8>{
+        \vspace{2em}
+        Using the dynamical Iitaka theory [Meng-Zhang23], 
+        to prove the theorem \textbf{New Fibration},
+        we only need to show that after iterating \(f\): 
+        \begin{itemize}
+            \item[\ding{172}] \(f^*R_f \equiv \delta_f R_f\); 
+            \item[\ding{173}] \(\kappa(X,R_f) \geq 1\).
+        \end{itemize}
+    }
+\end{frame}
+
+
+\begin{frame}{Proof of \ding{172}: \(f^*R_f \equiv \delta_f R_f\)}
+
+    \only<1-8>{
+        \vspace{0.5em}
+        \textbf{Case (*2)}:
+        \begin{tikzpicture}[
+            node distance=0.5cm and 0.8cm,
+            every node/.style={font=\small},
+            box/.style={rectangle, draw=blue!60, fill=blue!5, thick, minimum width=3.5cm, minimum height=0.8cm, align=center},
+            assumption/.style={rectangle, draw=red!60, fill=red!10, thick, minimum width=3.5cm, minimum height=0.8cm, align=center},
+            conclusion/.style={rectangle, draw=green!60, fill=green!10, thick, minimum width=3.5cm, minimum height=0.8cm, align=center},
+            contradiction/.style={rectangle, draw=orange!80, fill=orange!15, thick, minimum width=3.5cm, minimum height=0.8cm, align=center},
+            arrow/.style={->,>=Stealth,thick},
+            implies/.style={-Implies,double,double distance=2pt,thick}
+        ]
+            % Nodes
+            \node[box] (star2) {In the special Fano fibration case (*2) \\ with dynamical conditions (\(\dagger\)),};
+            \visible<2->{\node[box, right=of star2] (eigen) {\(f^*\) has exactly two eigenvalues \\ \(\delta_f\) and \(\delta_g=1\) on \(N^1(X)\).};}
+            \visible<3->{\node[box, below=of star2] (ramification) {By the ramification formula, we have \\ \(R_f = K_X - f^*K_X \in \Image(\id - f^*) \).};}
+            \visible<4->{\node[conclusion, below=of eigen] (conclude) {\(f^*R_f \equiv \delta_f R_f\).};}
+
+            % Arrows
+            \visible<2->{\draw[implies] (star2) -- (eigen);}
+            \visible<4->{\draw[implies] (ramification) -- (conclude);}
+            \visible<4->{\draw[implies] (eigen) -- (conclude);}
+        \end{tikzpicture}
+
+        \vspace{0.5em}
+
+        \visible<5->{\textbf{Case (*1)}:}
+        \begin{tikzpicture}[
+            node distance=0.5cm and 0.8cm,
+            every node/.style={font=\small},
+            box/.style={rectangle, draw=blue!60, fill=blue!5, thick, minimum width=3.5cm, minimum height=0.8cm, align=center},
+            assumption/.style={rectangle, draw=red!60, fill=red!10, thick, minimum width=3.5cm, minimum height=0.8cm, align=center},
+            conclusion/.style={rectangle, draw=green!60, fill=green!10, thick, minimum width=3.5cm, minimum height=0.8cm, align=center},
+            contradiction/.style={rectangle, draw=orange!80, fill=orange!15, thick, minimum width=3.5cm, minimum height=0.8cm, align=center},
+            arrow/.style={->,>=Stealth,thick},
+            implies/.style={-Implies,double,double distance=2pt,thick}
+        ]
+            % Nodes
+            \visible<5->{\node[box] (star2) {In the special Fano fibration case (*1) \\ with dynamical conditions (\(\dagger\)),};}
+            \visible<6->{\node[box, right=of star2] (decomp) {\(\Psef^1(X) = \pi^*\Psef^1(Y) \oplus \bbR_{\geq 0} D\) \\ with \(D\) nef and \(f^*D \equiv \delta_f D\)};}
+            \visible<7->{\node[box, below=of star2] (positivity) {Positivity of abelian varieties: \\ have no rational curves.};}
+            \visible<8->{\node[conclusion, below=of decomp] (conclude) {\(D /\!/ R_f\) and hence \\ \(f^*R_f \equiv \delta_f R_f\).};}
+
+            % Arrows
+            \visible<6->{\draw[implies] (star2) -- (decomp);}
+            \visible<8->{\draw[implies] (positivity) -- (conclude);}
+            \visible<8->{\draw[implies] (decomp) -- (conclude);}
+        \end{tikzpicture}
+
+        % \vspace{3em}
+        % \visible<1->{In the special Fano fibration case (*2) with dynamical conditions (\(\dagger\)),}
+        % \visible<2->{\alert<2>{\(f^*\) has exactly two eigenvalues \(\delta_f\) and \(\delta_g=1\) on \(N^1(X)\).}}
+        % \visible<3->{\alert<3>{By the ramification formula, we have
+        % \[ R_f=K_X - f^*K_X \in \Image(\id - f^*) = \Ker (\delta_f \id - f^*).\]}}
+
+        % \vspace{1em}
+        % \visible<4->{\alert<4>{For the case (*1), we give a theorem on the \textbf{decompositions of cones} and then using the positivity of abelian varieties to conclude.}}
+    }
+
+    \only<9->{
+
+        \vspace{0.5em}
+
+        \visible<9->{
+        \begin{theorem}[Decompositions of cones, {[Meng-Wang-Y]}]\label{thm: cone-decomp}
+            In the special Fano fibration case (*) with dynamical conditions (\(\dagger\)),
+            there exist decompositions of cones:
+            \[ \Psef^1(X) = \pi^*\Psef^1(Y) \oplus \bbR_{\geq 0} D,\] 
+            \[ \Nef^1(X) = \pi^*\Nef^1(Y) \oplus \bbR_{\geq 0} D, \]
+            where \(D\) is nef with \(f^*D \equiv \delta_f D\).
+        \end{theorem}}
+
+        \begin{columns} 
+            \begin{column}{0.5\textwidth}
+                \centering
+
+                \visible<10->{
+                \alert<10>{Without dynamical restrictions: \\
+                complicated cones}
+
+                \vspace{1em}
+                
+                \begin{tikzpicture}[scale=1, every node/.style={font=\small}]
+                    % parameters
+                    \def\rrrr{2.2}
+                    \def\dddd{0.5}
+
+                    % semicircle (Psef^1(X))
+                    \fill[cyan!8,draw=cyan,thick] (-\rrrr,0) arc (180:0:\rrrr) -- cycle;
+                    % quadrangle (Nef^1(X))
+                    \fill[magenta, fill opacity=0.3, draw=magenta, thick] (-\rrrr,-0.03) -- (-0.5*\rrrr,0.866*\rrrr) -- (0,\rrrr) -- (\dddd,-0.03) -- cycle;
+                    \node[below,magenta!80!black,font=\scriptsize] at (-0.8,0.9) {\(\Nef^1(X)\)};
+                    % overall label for the semicircle
+                    \node[above,cyan!70!black] at (0.3,0.7) {\(\Psef^1(X)\)};
+
+                    % diameter line segment (Psef^1(Y)) (Nef^1(Y))
+                    \draw[thick,blue] (-\rrrr,0) -- (\rrrr,0);
+                    \node[below,blue!80!black] at (0.7,-0.15) {\(\pi^*\Psef^1(Y)\)};
+                    \draw[thick,red] (-\rrrr,-0.03) -- (\dddd,-0.03);
+                    \node[below,red!80!black,font=\scriptsize] at (-1.1,0) {\(\pi^*\Nef^1(Y)\)};
+                \end{tikzpicture}
+                }
+                
+            \end{column}
+
+            \pause
+
+            \begin{column}{0.5\textwidth}
+                \centering
+
+                \visible<11->{
+                \alert<11>{With dynamical restrictions: \\
+                simple cones}
+
+                \begin{tikzpicture}[scale=1, every node/.style={font=\small}]
+                    % parameters
+                    \def\rrrr{2.2}
+                    \def\dddd{0.5}
+
+                    % triangle (Psef^1(X))
+                    \fill[cyan!8,draw=cyan,thick] (-\rrrr,0) -- (0,\rrrr) -- (\rrrr,0) -- cycle;
+                    % triangle (Nef^1(X))
+                    \fill[magenta, fill opacity=0.3, draw=magenta, thick] (-\rrrr,-0.03) -- (0,\rrrr) -- (\dddd,-0.03) -- cycle;
+                    \node[below,magenta!80!black,font=\scriptsize] at (-0.8,0.9) {\(\Nef^1(X)\)};
+                    % overall label for the semicircle
+                    \node[above,cyan!70!black] at (0.3,0.7) {\(\Psef^1(X)\)};
+
+                    % diameter line segment (Psef^1(Y)) (Nef^1(Y))
+                    \draw[thick,blue] (-\rrrr,0) -- (\rrrr,0);
+                    \node[below,blue!80!black] at (0.7,-0.15) {\(\pi^*\Psef^1(Y)\)};
+                    \draw[thick,red] (-\rrrr,-0.03) -- (\dddd,-0.03);
+                    \node[below,red!80!black,font=\scriptsize] at (-1.1,0) {\(\pi^*\Nef^1(Y)\)};
+
+                    % dot and label at (0,\rrrr)
+                    \fill[green] (0,\rrrr) circle (0.06);
+                    \node[above right,font=\scriptsize,green!70!black] at (0,\rrrr) {\(D\) };
+                \end{tikzpicture}
+                }
+            \end{column}
+        \end{columns}
+    }
+\end{frame}
+
+
+\begin{frame}{Proof of \ding{173}: positivity of \(\kappa(X,R_f)\)}
+
+    % \centering
+    \vspace{1em}
+    \begin{tikzpicture}[
+        node distance=0.5cm and 0.8cm,
+        every node/.style={font=\small},
+        box/.style={rectangle, draw=blue!60, fill=blue!5, thick, minimum width=3.5cm, minimum height=0.8cm, align=center},
+        assumption/.style={rectangle, draw=red!60, fill=red!10, thick, minimum width=3.5cm, minimum height=0.8cm, align=center},
+        conclusion/.style={rectangle, draw=green!60, fill=green!10, thick, minimum width=3.5cm, minimum height=0.8cm, align=center},
+        contradiction/.style={rectangle, draw=orange!80, fill=orange!15, thick, minimum width=3.5cm, minimum height=0.8cm, align=center},
+        arrow/.style={->,>=Stealth,thick},
+        implies/.style={-Implies,double,double distance=2pt,thick}
+    ]
+        % Nodes
+        \node[box] (start) {Set \(D := \Supp(R_f)\)};
+
+        \node[assumption, below=of start] (assume) {Assume\\ \(\kappa(X,R_{f}) = \kappa(X,R_{f^s}) = 0\)};
+
+        \node[box, above right=0.75cm and 0.5cm of assume] (stardagger) {Special Fano fibration case (*) \\ with dynamical conditions (\(\dagger\))};
+        
+
+        \visible<2->{
+        \node[box, below right=0.25cm and 1.2cm of start] (logetale) {\(f\) étale outside \(D\)};
+        }
+
+
+        \visible<3->{
+        \node[box, below=of assume] (prime) {\(D\) is prime even \\ after base change};
+
+        \node[box, below=of logetale] (invariant) {\(f^{-1}(D) = D\)};
+        }
+
+
+        \visible<4->{
+        \node[box, below right=0.5cm and 0.5cm of stardagger] (toric) {General \(y \in Y\): \\ \((X_y,D_y)\) is toric};
+        }
+
+        \visible<6->{
+        \node[box, below=of toric, xshift=-0.4cm] (components) {General \(y \in Y\): \\ \(D_y\) has \(\geq 2\) \\ irreducible components};
+        }        
+        
+        \visible<7->{
+        \node[box, below=of components, xshift=-0.4cm] (split) {After base change, \\ \(D\) splits into \(\geq 2\) components};
+        }
+        
+        \visible<8->{
+        \node[contradiction, left=of split, yshift=1cm] (contra) {\textbf{Contradiction!}};
+        }
+
+        \visible<9->{
+        \node[conclusion, below left=of contra] (result) {\(\kappa(X,R_f) \geq 1\)};
+        }
+
+        % Arrows
+        \visible<2->{\draw[implies] (start) -- (logetale);}
+
+        \visible<3->{\draw[implies] (assume) -- (prime);}
+        \visible<3->{\draw[implies] (assume) -- (invariant);}
+
+        \visible<4->{\draw[implies] (stardagger) -- (toric);}
+        \visible<4->{\draw[implies] (logetale) -- (toric);}
+        \visible<4->{\draw[implies] (invariant) -- (toric);}
+
+        \visible<6->{\draw[implies] (toric) -- (components);}
+
+        \visible<7->{\draw[implies] (components) -- (split);}
+
+        \visible<8->{\draw[implies] (prime) -- (contra);}
+        \visible<8->{\draw[implies] (split) -- (contra);}
+
+        \visible<9->{\draw[implies] (contra) -- (result);}
+        
+    \end{tikzpicture}
+
+    \only<5>{
+
+        \begin{tikzpicture}[remember picture,overlay]
+            \visible<5>{
+            % First minipage at the bottom with text
+            \node[anchor=south west,xshift=1.2cm,yshift=0.5cm] at (current page.south west) {%
+                \begin{minipage}[t][3cm]{0.35\textwidth}
+                    Consider 
+                    \[ f: \bbP^2 \to \bbP^2, \quad [X:Y:Z] \mapsto [X^q:Y^q:Z^q]; \]
+                    and \(D= \{XYZ=0\}.\)
+                \end{minipage}
+            };
+            }
+
+            \visible<5>{
+            % Second minipage overlapping the first one on the right-down side with figure
+            \node[anchor=south east,xshift=-2cm,yshift=0.5cm] at (current page.south east) {%
+                \begin{minipage}[t][4cm]{0.3\textwidth}
+                    \centering
+                    \begin{tikzpicture}[scale=0.6]
+                        % Define equilateral triangle vertices
+                        \coordinate (A) at (0,0);
+                        \coordinate (B) at (4,0);
+                        \coordinate (C) at (2,{2*sqrt(3)});
+                        
+                        % Calculate extended points for lines beyond vertices
+                        \coordinate (A') at ($(A)!1.3!(B)$);
+                        \coordinate (A'') at ($(B)!1.3!(A)$);
+                        
+                        \coordinate (B') at ($(B)!1.3!(C)$);
+                        \coordinate (B'') at ($(C)!1.3!(B)$);
+                        
+                        \coordinate (C') at ($(C)!1.3!(A)$);
+                        \coordinate (C'') at ($(A)!1.3!(C)$);
+                        
+                        % Draw extended sides of triangle
+                        \draw[thick,red] (A'') -- (A') node[below,midway,text=gray!50,font=\scriptsize] {\(Y=0\)};
+                        \draw[thick,red] (B'') -- (B') node[right,midway,text=gray!50,font=\scriptsize] {\(X=0\)};
+                        \draw[thick,red] (C'') -- (C') node[left,midway,text=gray!50,font=\scriptsize] {\(Z=0\)};
+                        
+                        % Blue arrows along boundary (D is totally invariant)
+                        \draw[->,thick,blue!60,>=Stealth] ($(A)!0.3!(B)$) -- ($(A)!0.45!(B)$);
+                        \draw[->,thick,blue!60,>=Stealth] ($(A)!0.7!(B)$) -- ($(A)!0.85!(B)$);
+                        \draw[->,thick,blue!60,>=Stealth] ($(B)!0.25!(C)$) -- ($(B)!0.4!(C)$);
+                        \draw[->,thick,blue!60,>=Stealth] ($(B)!0.65!(C)$) -- ($(B)!0.8!(C)$);
+                        \draw[->,thick,blue!60,>=Stealth] ($(C)!0.3!(A)$) -- ($(C)!0.45!(A)$);
+                        \draw[->,thick,blue!60,>=Stealth] ($(C)!0.7!(A)$) -- ($(C)!0.85!(A)$);
+                        
+                        % Cyan arrows parallel to blue (interior flow)
+                        \draw[->,thick,cyan!70,>=Stealth] ($($(A)!0.3!(B)$)+(0,0.4)$) -- ($($(A)!0.45!(B)$)+(0,0.4)$);
+                        \draw[->,thick,cyan!70,>=Stealth] ($($(A)!0.7!(B)$)+(0,0.4)$) -- ($($(A)!0.85!(B)$)+(0,0.4)$);
+                        \draw[->,thick,cyan!70,>=Stealth] ($($(B)!0.25!(C)$)+(-0.35,-0.2)$) -- ($($(B)!0.4!(C)$)+(-0.35,-0.2)$);
+                        \draw[->,thick,cyan!70,>=Stealth] ($($(B)!0.65!(C)$)+(-0.35,-0.2)$) -- ($($(B)!0.8!(C)$)+(-0.35,-0.2)$);
+                        \draw[->,thick,cyan!70,>=Stealth] ($($(C)!0.3!(A)$)+(0.35,-0.2)$) -- ($($(C)!0.45!(A)$)+(0.35,-0.2)$);
+                        \draw[->,thick,cyan!70,>=Stealth] ($($(C)!0.7!(A)$)+(0.35,-0.2)$) -- ($($(C)!0.85!(A)$)+(0.35,-0.2)$);
+                        
+                        % Cyan arrows 
+                        \draw[->,thick,cyan!70,>=Stealth] ($($(A)!0.3!(B)$)+(0.8,0.6)$) -- ($($(A)!0.45!(B)$)+(0.8,0.6)$);
+                        \draw[->,thick,cyan!70,>=Stealth] ($($(B)!0.25!(C)$)+(-1.05,0.4)$) -- ($($(B)!0.4!(C)$)+(-1.05,0.4)$);
+                        \draw[->,thick,cyan!70,>=Stealth] ($($(C)!0.3!(A)$)+(0.15,-1.05)$) -- ($($(C)!0.45!(A)$)+(0.15,-1.05)$);
+
+                        % Mark vertices with dots
+                        \fill[purple] (A) circle (0.05);
+                        \fill[purple] (B) circle (0.05);
+                        \fill[purple] (C) circle (0.05);
+                        
+                        % Label vertices
+                        \node[below left,gray!50,font=\scriptsize] at (A) {\([1:0:0]\)};
+                        \node[below right,gray!50,font=\scriptsize] at (B) {\([0:1:0]\)};
+                        \node[above,gray!50,font=\scriptsize] at (C) {\([0:0:1]\)};
+                    \end{tikzpicture}
+                \end{minipage}
+            };
+            }
+        \end{tikzpicture}
+    }
+
+    
+\end{frame}
+
+
+% ----------------------------------------------------------
+
+% Thank you slide
+{
+    \setbeamertemplate{background}{}
+    \begin{frame}[plain]
+
+    \vspace{0.2\textheight}
+    \Huge{\centerline{\textbf{\alert{Thank You!}}}}
+
+    \vfill
+    \centerline{\includegraphics[width=0.35\textwidth]{\ECNULibThanks}}
+    \end{frame}
+}
+
+
+\end{document}
