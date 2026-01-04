@@ -42,12 +42,12 @@
 
 \begin{frame}{Kawaguchi-Silverman Conjecture}
 
-    \vspace{1em}
+    \vspace{0.3em}
         
     \(/\overline{\bbQ}\). \(X\) smooth projective variety; \(f:X \to X\) surjective endomorphism.
 
     \pause
-    \vspace{1em}
+    \vspace{0.2em}
 
     \begin{conjecture}[{Kawaguchi-Silverman Conjecture $=$ KSC}]\label{conj: ksc} 
         If the orbit \(O_f(x):=\{f^n(x)\,|\,n\ge 0\}\) is Zariski dense in \(X\), then
@@ -55,19 +55,32 @@
     \end{conjecture} 
 
     \pause
-    \vspace{1em}
+    \vspace{0.2em}
 
     Let \(H\) be an ample divisor and \(h\geq 1\) a height function associated to \(H\).
 
     % \vspace{0.5em}
     \begin{center}
     \begin{tabular}{cll}
-        \only<4->{\textbullet & \(\displaystyle\alpha_f(x) := \lim_{n\to\infty} h(f^n(x))^{\frac{1}{n}}\)                     
-                    & \textcolor{magenta}{arithmetic, local} invariant at \(x\); \\}
-        \only<5->{\textbullet & \(\displaystyle \delta_f := \lim_{n\to\infty} ((f^n)^*H \cdot H^{\dim X - 1})^{\frac{1}{n}}\) 
-                    & \textcolor{cyan}{geometric, global} invariant of \(f\). \\}
+        \visible<4->{
+            \textbullet & \textcolor{magenta}{arithmetic degree}: & \\
+                & \(\displaystyle \textcolor{magenta}{\alpha_f(x)} := \lim_{n\to\infty} h(f^n(x))^{\frac{1}{n}}\)
+                & \textcolor{magenta}{arithmetic, local} invariant at \(x\); \\
+        }
+        \visible<5->{
+            \textbullet & \textcolor{cyan}{dynamical degree}: & \\
+                & \(\displaystyle \textcolor{cyan}{\delta_f} := \lim_{n\to\infty} ((f^n)^*H \cdot H^{\dim X - 1})^{\frac{1}{n}}\) 
+                & \textcolor{cyan}{geometric, global} invariant of \(f\). \\
+        }
     \end{tabular}
     \end{center}
+
+    \vspace{-0.7cm}
+    \visible<6->{
+        \begin{center}
+            \textbf{Slogan:} {\Large\textcolor{cyan}{GEOMETRY}} controls {\Large\textcolor{magenta}{ARITHMETIC}}.
+        \end{center}
+    }
     
 \end{frame}
 
@@ -133,7 +146,7 @@
                     
                     \(x = [1:2:1]\).
 
-                    \item \(f^*H \sim 2H\) \(\Rightarrow\) \((f^n)^*H \sim 2^n H\) \(\Rightarrow\) \(\delta_f = 2\).
+                    \item \(f^*H \sim 2H\) \(\Rightarrow\) \(\delta_f = 2\).
                     
                     \item 
                     \begin{tabular}{r l l}
@@ -182,7 +195,7 @@
         % nodes
         \node[draw=blue!60, fill=blue!6, thick, circle, minimum size=2.5cm, align=center] (ZDO) at (-2.5,0) {Zariski Dense\\ Orbit conjecture\\ \textcolor{blue!70!black}{(ZDO)}};
         \node[draw=green!60, fill=green!6, thick, circle, minimum size=2.5cm, align=center] (DML) at (2.5,0) {Dynamical\\ Mordell-Lang\\ conjecture \textcolor{green!70!black}{(DML)}};
-        \node[draw=red!70, fill=red!6, thick, circle, minimum size=2.5cm, align=center] (KSC) at (0,-3.7) {Kawaguchi-\\Silverman\\ conjecture \textcolor{red!70!black}{(KSC)}};
+        \node[draw=red!70, fill=red!6, thick, circle, minimum size=2.5cm, align=center] (KSC) at (0,-3.7) {\textbf{Kawaguchi-}\\\textbf{Silverman}\\ \textbf{conjecture} \textcolor{red!70!black}{\textbf{(KSC)}}};
 
         % curved association arrows
         \draw[-, thick, orange] (ZDO) to[out=60,in=120] (DML);
@@ -194,27 +207,30 @@
     \node[anchor=east,xshift=-0.6cm] at (current page.east) {%
         \begin{minipage}[t][0.9\textheight]{0.55\textwidth}
             \only<1-3>{
+                \vspace{0.5cm}
                 \textcolor{red!70!black}{
                     The KSC relates the growth rate of heights along orbits to dynamical degrees.
                 }
             }
 
             \only<2-3>{
-                \vspace{0.3cm}
+                \vspace{0.5cm}
                 \textcolor{green!70!black}{
-                    The DML predicts if 
-                    \[ \# O_f(x) \cap V = \infty \quad V \text{ a subvariety}, \]
-                    then 
-                    \[ O_{f^r}(f^s(x)) \subseteq V \quad \text{for some } r,s. \]
+                    % The DML predicts if 
+                    % \[ \# O_f(x) \cap V = \infty \quad V \text{ a subvariety}, \]
+                    % then 
+                    % \[ O_{f^r}(f^s(x)) \subseteq V \quad \text{for some } r,s. \]
+                    The DML describes the intersection between orbits and subvarieties.
                 }
             }
 
             \only<3>{
+                \vspace{0.5cm}
                 \textcolor{blue!70!black}{
                     The ZDO states that either 
                     \[ \exists x\  \text{with}\  \overline{O_f(x)} = X, \]
-                    or 
-                    \[ \exists\  f^n \acts X \ratmap Y \racts \id_Y. \]
+                    or \(f\) descends to identity after iteration.
+                    % \[ \exists\  f^n \acts X \ratmap Y \racts \id_Y. \]
                 }
             }
 
@@ -226,13 +242,15 @@
                 \textcolor{red!70!black}{Smooth projective surfaces}                        \hfill [Matsuzawa-Sano-Shibata];\\
                 \textcolor{red!70!black}{Quasi-projective surfaces (assume DML)}            \hfill [Wang];\\
                 \textcolor{red!70!black}{Smooth projective 3folds with \(\deg f>1\)}        \hfill [Meng-Zhang];\\
-                \vspace{0.1cm}\\
+                \vspace{0.1em}\\
                 \textcolor{red!70!black}{Abelian varieties}                                 \hfill [Kawaguchi-Silverman];\\
                 \textcolor{red!70!black}{Hyperk\"ahler manifolds}                           \hfill [Lesieutre-Santriano];\\
                 \textcolor{red!70!black}{Mori dream spaces}                                 \hfill [Matsuzawa];\\
-                \vspace{0.1cm}\\
+                \vspace{0.1em}\\
                 \textcolor{red!70!black}{Polarized endomorphisms}                           \hfill [Kawaguchi-Silverman];\\
-                \textcolor{red!70!black}{Int-amplified endomorphisms}                       \hfill [Meng-Zhong].\\
+                \textcolor{red!70!black}{Int-amplified endomorphisms}                       \hfill [Meng-Zhong];\\
+                \vspace{0.1em}\\
+                \textcolor{red!70!black}{\(\cdots\)}
                 }
             }
 
@@ -241,23 +259,108 @@
                 {\fontsize{9pt}{11pt}\selectfont
                 \textcolor{green!70!black}{\'Etale case}                            \hfill [Bell-Ghioca-Tucker];\\
                 \textcolor{green!70!black}{Endomorphisms of \(\bbA^2\)}             \hfill [Xie];\\
-                \textcolor{green!70!black}{ Projective surfaces in char \(p>0\)}    \hfill [Xie-Yang].\\
+                \textcolor{green!70!black}{ Projective surfaces in char \(p>0\)}    \hfill [Xie-Yang];\\
+                \textcolor{green!70!black}{\(\cdots\)}
                 }
             }
 
             \only<7>{
-                \vspace{0.15cm}
+                \vspace{0.3cm}
                 {\fontsize{9pt}{11pt}\selectfont
                 \textcolor{blue!70!black}{Over \(\bbC\) (uncountable field)}                    \hfill [Amerik-Campana];\\
                 \textcolor{blue!70!black}{Existence of infinity orbits}                         \hfill [Amerik];\\
                 \textcolor{blue!70!black}{Projective surfaces}                                  \hfill [Xie,Jia-Xie-Zhang];\\
-                \textcolor{blue!70!black}{Automorphisms of threefolds with positive entropy}    \hfill [Matsuzawa-Xie].
+                \textcolor{blue!70!black}{Automorphisms of threefolds with positive entropy}    \hfill [Matsuzawa-Xie];\\
+                \textcolor{blue!70!black}{\(\cdots\)}
                 }
             }
         \end{minipage}
     };
     \end{tikzpicture}
     
+\end{frame}
+
+
+\begin{frame}{Main results}
+
+    \only<1->{
+        Settings:
+        \begin{itemize}
+            \item \(\pi:(X,f) \to (Y,g)\) smooth Fano fibration with \(X,Y\) smooth projective and \(\rho(X) = \rho(Y)+1\), for example, \(\bbP^n\)-bundles over \(Y\);
+            \item \(Y\) is an abelian variety or of picard number one;
+            \only<6->{\alert{\item \(f\) has a Zariski dense orbit;}}
+            \only<6->{\alert{\item \(\delta_f > \delta_g\);}}
+            \only<6->{\alert{\item if \(Y\) is of picard number one, then \(\delta_g = 1\).}}
+        \end{itemize}
+    }
+
+    \only<2-5>{
+        \begin{theorem}[{[Meng-Wang-Y]}]\label{thm: mainthm}
+            KSC holds for \((X,f)\) under the above settings.
+        \end{theorem}
+    }
+
+    \only<3>{
+        \vspace{0.5em}
+        \alert{
+            Essentially generalize the following known results:
+            \begin{itemize}
+                \item {[Li-Matsuzawa 2021, Theorem 4.1]}, projective bundles on smooth Fano varieties of Picard number one;
+                \item {[Nasserden-Zotine 2021, Theorem 1.4]}, projective bundles on elliptic curves.
+            \end{itemize}
+        }
+    }
+
+    \only<4-5>{
+        \vspace{0.5em}
+        \alert<4>{
+            Sketch of idea:
+            If \(\delta_f = \delta_g\), then 
+            \vspace{0.5em}
+            \[ \text{\shortstack{KSC for abelian varieties\\ or polarized endomorphisms}} \implies \text{KSC for } (Y,g) \implies \text{KSC for } (X,f). \]
+        }
+        \vspace{0.5em}
+        \visible<5>{ \alert<5>{If \(\delta_f > \delta_g\), under some allowable extra conditions, we have another fibration by dynamical Iitaka theory.}}
+    }
+
+    \only<6>{
+        \begin{theorem}[{[Meng-Wang-Y]}]\label{thm: mainthm2}
+            There is equivariant fibrations
+            \[ f \acts X \overset{\varphi_{f,R_f}}{---\!\twoheadrightarrow} Y \racts g \]
+            with \(\dim Y>0\) and \(g\) is \(\delta_f\)-polarized and hence \(\delta_g = \delta_f\).
+        \end{theorem}
+    }
+\end{frame}
+
+
+\begin{frame}{Dynamical Iitaka Theory}
+
+    \vspace{0.7em}
+
+    \begin{theorem}[{[Meng-Zhang]}]
+        \vspace{1em}
+        Suppose that \(f^*R_f \equiv q R_f\) for some \(q > 1\).
+        Then there exists an \(f\)-equivariant fibration (dynamical Iitaka fibration associated to \(R_f\))
+        \[ f \acts X \overset{\varphi_{f,R_f}}{---\!\twoheadrightarrow} Y \racts g \]
+        with \(\dim Y = \kappa_f(X,R_f)\) and \(g\) is \(q\)-polarized.
+    \end{theorem}
+
+    \vspace*{1em}
+    \pause
+    \alert<2>{
+        With help of this result, we only need to show that under our settings,
+        \begin{itemize}
+            \item \(\kappa_f(X,R_f) \geq 1\); \visible<3->{ \alert<3>{\(\Longleftarrow\) criterion for toric bundles}}
+            \item \(f^*R_f \equiv \delta_f R_f\). \visible<4>{ \alert<4>{\(\Longleftarrow\) decomposition of cones}}
+        \end{itemize}
+    }
+
+    % \pause
+    % \alert<3>{
+    %     Then 
+    %     \[ \text{KSC for polarized endomorphisms} \implies \text{KSC for } (Y,g) \implies \text{KSC for } (X,f). \]
+    % }
+
 \end{frame}
 
 
@@ -299,100 +402,11 @@
                 \hline
                 $0$                                   & \(f\) is log-\'etale                  \\
                 \alert{$0<\kappa_f(X,R_f)<\dim X$}    & \alert{fibrations type}                       \\
-                $\dim X$                              & \(R_{f^s}\) is big for \(s \geq 0\)   \\
+                $\dim X$                              & \(R_{f^s}\) is big for \(s \gg 0\)   \\
                 \hline
             \end{tabular}
         \end{column}
     \end{columns}
-
-\end{frame}
-
-
-\begin{frame}{Main results}
-
-    \only<1->{
-        Settings:
-        \begin{itemize}
-            \item \(\pi:(X,f) \to (Y,g)\) smooth Fano fibration with \(X,Y\) smooth projective and \(\rho(X) = \rho(Y)+1\), for example, \(\bbP^n\)-bundles over \(Y\);
-            \item \(Y\) is an abelian variety or of picard number one;
-            \only<5->{\alert{\item \(f\) has a Zariski dense orbit;}}
-            \only<5->{\alert{\item \(\delta_f > \delta_g\);}}
-            \only<5->{\alert{\item if \(Y\) is of picard number one, then \(\delta_g = 1\).}}
-        \end{itemize}
-    }
-
-    \only<2-4>{
-        \begin{theorem}[{[Meng-Wang-Y]}]\label{thm: mainthm}
-            KSC holds for \((X,f)\) under the above settings.
-        \end{theorem}
-    }
-
-    \only<2>{
-        \vspace{0.5em}
-        \alert{
-            Generalize the following known results:
-            \begin{itemize}
-                \item {[Li-Matsuzawa 2021, Theorem 4.1]}, projective bundles on smooth Fano varieties of Picard number one;
-                \item {[Nasserden-Zotine 2021, Theorem 1.4]}, projective bundles on elliptic curves.
-            \end{itemize}
-        }
-    }
-
-    \only<3>{
-        \alert{
-            Sketch of idea:
-            If \(\delta_f = \delta_g\), then 
-            \vspace{0.5em}
-            \[ \text{\shortstack{KSC for abelian varieties\\ or polarized endomorphisms}} \Rightarrow \text{KSC for } (Y,g) \Rightarrow \text{KSC for } (X,f). \]
-        }
-        % If \(\delta_f > \delta_g\), under some extra conditions, we have another fibration by dynamical Iitaka theory.
-    }
-
-    \only<4>{
-        Sketch of idea:
-        If \(\delta_f = \delta_g\), then 
-        \vspace{0.5em}
-        \[ \text{\shortstack{KSC for abelian varieties\\ or polarized endomorphisms}} \Rightarrow \text{KSC for } (Y,g) \Rightarrow \text{KSC for } (X,f). \]
-        
-        \alert{ If \(\delta_f > \delta_g\), under some extra conditions, we have another fibration by dynamical Iitaka theory.}
-    }
-
-    \only<5>{
-        \begin{theorem}[{[Meng-Wang-Y]}]\label{thm: mainthm2}
-            There is equivariant fibrations
-            \[ f \acts X \overset{\varphi_{f,R_f}}{---\!\twoheadrightarrow} Y \racts g \]
-            with \(\dim Y>0\) and \(g\) is \(q\)-polarized.
-        \end{theorem}
-    }
-\end{frame}
-
-
-\begin{frame}{Main results}
-
-    \vspace{0.7em}
-
-    \begin{theorem}[{[Meng-Zhang]}]
-        \vspace{1em}
-        Suppose that \(f^*R_f \equiv q R_f\) for some \(q > 1\).
-        Then there exists an \(f\)-equivariant fibration (dynamical Iitaka fibration associated to \(R_f\))
-        \[ f \acts X \overset{\varphi_{f,R_f}}{---\!\twoheadrightarrow} Y \racts g \]
-        with \(\dim Y = \kappa_f(X,R_f)\) and \(g\) is \(q\)-polarized.
-    \end{theorem}
-
-    \pause
-    \alert<2>{
-        With help of this result, we only need to show that under our settings,
-        \begin{itemize}
-            \item \(\kappa_f(X,R_f) \geq 1\); \only<4->{ \alert<4>{\(\Longleftarrow\) criterion for toric bundles}}
-            \item \(f^*R_f \equiv \delta_f R_f\). \only<5>{ \alert<5>{\(\Longleftarrow\) decomposition of cones \(+\) no rational curve on \(Y\)}}
-        \end{itemize}
-    }
-
-    \pause
-    \alert<3>{
-        Then 
-        \[ \text{KSC for polarized endomorphisms} \implies \text{KSC for } (Y,g) \implies \text{KSC for } (X,f). \]
-    }
 
 \end{frame}
 
@@ -500,8 +514,9 @@
         % \vspace{0.5em}
         Let \(\pi:(X,f) \to (Y,g)\) be a Fano fibration with \(X\) smooth.
         Suppose that \(\exists\) reduced divisor \(D\) on \(X\) 
-        with \(f^{-1}(D) = D,f^*D \sim q D\) for some \(q > 1\) and \(K_X + D \equiv_\pi 0\).
-        Then \(\pi:X \to Y\) is a toric bundle.
+        with \alert{\(f^{-1}(D) = D,f^*D \sim q D\)} for some \(q > 1\) and \alert{\(K_X + D \equiv_\pi 0\)}.
+        % Then \(\pi:X \to Y\) is a \alert{toric bundle.}
+        Then \((X_y,D_y)\) is a \alert{toric pair} for general \(y \in Y\).
     \end{theorem}
 
     \pause
@@ -599,8 +614,8 @@
     Here are two further questions we are interested in:
 
     \begin{itemize}
-        \item weaken the conditions on \(Y\): can we just assume \(Y\) is normal projective?
-        \item 
+        \visible<2->{\alert<2>{\item weaken the conditions on \(Y\): can we just assume \(Y\) is normal projective?}}
+        \visible<3->{\alert<3>{\item deal the case \(R_f\) is big in the dynamical Iitaka theory.}}
     \end{itemize}
     
 \end{frame}
