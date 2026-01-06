@@ -1,0 +1,304 @@
+\documentclass{noteformyself}
+
+\newcommand{\Yang}[1]{\textcolor{red}{Yang: #1}}    % 批注命令
+\input{../../Accessories/notation.tex}              % 加载符号定义文件
+\addbibresource{../../Accessories/ref.bib}         % 加载参考文献文件
+
+
+\title{Lecture of talk on Undergraduate Forum, ICCM25, Jan 07, 2026}
+\author{Tianle Yang}
+\date{\today}
+% \authorpage{\href{www.tianleyang.com}{My Homepage}}
+
+% % available on the mode "\sectionlevel=chapter" or "\sectionlevel=book".
+% \setCJKfamilyfont{lxgwwenkai}{LXGW WenKai} % 定义霞鹜文楷，若未安装，请去掉相关代码编译或使用其他字体
+% \coversentence{\CJKfamily{lxgwwenkai}阿巴阿巴阿巴阿巴阿巴阿巴阿巴阿巴!}
+% \coverimage{placeholder.jpg} % 封面图片，
+% \coverlinecolor{red} % 封面线条颜色，available on the mode "\sectionlevel=chapter" or "\sectionlevel=book".
+% \covertitlefont{Allura} % 封面标题字体，available on the mode "\sectionlevel=chapter" or "\sectionlevel=book".
+% \covertextcolor{green} % 封面文字颜色，available on the mode "\sectionlevel=chapter" or "\sectionlevel=book".
+
+
+\def\acts{\ \rotatebox[origin=c]{-90}{$\circlearrowright$}\ }
+\def\racts{\ \rotatebox[origin=c]{90}{$\circlearrowleft$}\ }
+\def\dacts{\ \rotatebox[origin=c]{0}{$\circlearrowright$}\ }
+\def\uacts{\ \rotatebox[origin=c]{180}{$\circlearrowright$}\ }
+
+
+% \begin{document}
+
+%     \maketitle
+
+%     \section{Slide 1: Title}
+
+%         Thanks for the introduction and the invitation of organizers.
+%         It's my pleasure to give a talk here.
+
+%         My talk is about about Algebraic Dynamics.
+
+%     \bigskip
+
+%     \section*{Slide 2: Kawaguchi--Silverman Conjecture}
+
+%         Let \(X\) be a smooth projective variety defined over \(\mathbb{Q}\), and
+%         let \(f : X \to X\) be a surjective endomorphism.
+%         Fix an ample line bundle \(H\) on \(X\) and a height function \(h\)
+%         associated to \(H\).
+
+%         Kawaguchi and Silverman conjectured that if a point \(x \in X\) has dense orbit,
+%         then the geometric growth rate of \(f\) equals the arithmetic growth rate
+%         of the height along the orbit of \(x\).
+
+
+%         The first one is the \emph{dynamical degree} $\delta_f$.
+%         This is a geometric invariant, measuring how divisors grow under
+%         iteration of $f$.
+
+%         The second one is the \emph{arithmetic degree} $\alpha_f(x)$.
+%         This measures how fast the height of a rational point grows along its
+%         orbit.
+
+%         The Kawaguchi--Silverman Conjecture can be viewed as an example of the slogan:
+
+%         \begin{center}
+%         \emph{Geometry controls arithmetic.}
+%         \end{center}
+
+%     \section*{Slide 3: An Example}
+
+%         Let me illustrate this conjecture with a concrete example.
+
+%         I drawn here the first few points in its orbit.
+
+%         Since \(f^*H \sim 2H\), you can compute and see that the dynamical degree is \(2\).
+
+%         And I list here the heights of the points in the orbit.
+
+%         The ratio of the latter height to the former height is approximately \(2\),
+%         so the arithmetic degree is also expected to be \(2\).
+
+%     \section*{Slide 4: Known Cases}
+
+%         The Kawaguchi--Silverman Conjecture is still open in general,
+%         but it has been verified in many important settings.
+
+%         In lower dimensions\dots
+%         For some special classes of varieties\dots
+%         And for some special classes of endomorphisms.
+
+%     \section*{Slide 5: Main Results}
+
+%         Now let me explain where our work fits into this picture.
+
+%         We study the following special Fano fibration case, 
+%         it comes from Minimal Model Program and can be viewed as a final output.
+
+%         Explicitly, we consider a smooth Fano fibration
+%         \[
+%         \pi : X \to Y
+%         \]
+%         with relative Picard number one, where the base $Y$ is either an abelian
+%         variety, or a smooth projective variety of Picard number one.
+
+%         Under this setting, we show the KSC holds for $X$.
+
+%         Since some sub cases are already known, we further impose some
+%         dynamical conditions (dagger).
+
+%         Under these assumptions,
+%         we find a new equivariant fibration which preserves the dynamical degree.
+%         And its base is polarized.
+%         This will reduce the KSC for $X$ to the KSC for the base.
+%         And the latter is known.
+
+%     \section*{Slide 6: Sketch of Proof}
+
+%         Let me very briefly explain the idea of the proof to the existence of this
+%         new fibration.
+
+%         We work in the special Fano fibration case, under the dynamical condition
+%         that the dynamical degree strictly decreases.
+
+%         First, under the dynamical restriction, we give a decomposition of the pseduo-effective cone of divisors on \(X\).
+%         Use this decomposition and the geometry of base \(Y\), we show that the ramification divisor \(R_f\) is indeed an eigenvector of \(f^*\).
+%         This shows that the induced dynamics on the base are polarized.
+
+%         Next, we give a criterion for toric bundles by dynamics,
+%         which applies to our Fano fibration setting.
+%         We apply this criterion to show that the \(\kappa(X,R_f) > 0\).
+%         This shows that the fibration we will construct is non-trivial.
+
+%         Finally, using the Dynamical Iitaka theory, we combine these two steps to produce the desired fibration.
+
+%     \section*{Slide 7: Conclusion}
+
+%         That's all for my talk.
+%         Thank you for your attention!
+
+% \end{document}
+
+\newcommand{\pausebreath}{\medskip}
+\newcommand{\skipifshort}[1]{#1}
+
+\begin{document}
+
+    \maketitle
+
+    \section{Slide 1: Title (25s)} % [20--25s]
+
+        Thank you very much for the introduction and the invitation from the organizers.
+        \pausebreath
+        It is my pleasure to give a talk here.
+        \pausebreath
+
+        Today I will talk about some recent work in \emph{algebraic dynamics}.
+        \pausebreath
+
+    \section*{Slide 2: Kawaguchi--Silverman Conjecture (1min10s)} % [45--50s]
+
+        Let \(X\) be a smooth projective variety defined over \(\mathbb{Q}\), and
+        let \(f : X \to X\) be a surjective endomorphism.
+        \pausebreath
+        Fix an ample line bundle \(H\) on \(X\) and a height function \(h\)
+        associated to \(H\).
+        \pausebreath
+
+        Kawaguchi and Silverman conjectured that if a point \(x \in X\) has a Zariski dense orbit,
+        then the dynamical degree \(\delta_f\) coincides with the arithmetic degree \(\alpha_f(x)\).
+        \pausebreath
+
+        The first invariant is the \emph{dynamical degree} \(\delta_f\),
+        which is the exponential growth rate of intersection numbers.
+        \pausebreath
+
+        The second one is the \emph{arithmetic degree} \(\alpha_f(x)\),
+        which is the exponential growth rate of heights along the orbit of \(x\).
+        \pausebreath
+
+        % \skipifshort{
+        % I will not explain these notions in detail today.
+        % You can simply think of them as two growth rates: one geometric and one arithmetic.
+        % \pausebreath
+        % }
+
+        The Kawaguchi--Silverman Conjecture can be viewed as an example of the slogan:
+        \pausebreath
+
+        \begin{center}
+        \emph{Geometry controls arithmetic.}
+        \end{center}
+
+    \section*{Slide 3: An Example (2min)} % [45--50s]
+
+        Let me illustrate this conjecture with a concrete example.
+        \pausebreath
+
+        On the slide, I have drawn the first few points in the orbit of a point.
+        \pausebreath
+
+        Since \(f^*H \sim 2H\), one can compute that the dynamical degree is equal to \(2\).
+        \pausebreath
+
+        I also list the heights of the points in the orbit.
+        \pausebreath
+
+        The ratio of successive heights is approximately \(2\),
+        so the arithmetic degree is also expected to be \(2\),
+        in agreement with the conjecture.
+        \pausebreath
+
+    \section*{Slide 4: Known Cases (2min25s)} % [20--25s]
+
+        The Kawaguchi--Silverman Conjecture is still open in general,
+        but it has been verified in many important cases.
+        \pausebreath
+
+        % \skipifshort{
+        For example, it is known in lower dimensions,
+        for certain special classes of varieties,
+        and for certain special classes of endomorphisms.
+        \pausebreath
+        % }
+
+        % I will not go into details here; this slide is only meant to show
+        % that the conjecture has been widely studied.
+        % \pausebreath
+
+    \section*{Slide 5: Main Results (3min25s)} % [55--60s]
+
+        Now let me explain where our work fits into this picture.
+        \pausebreath
+
+        We study a special Fano fibration case.
+        This setting comes from the Minimal Model Program
+        and can be viewed as one of its final outputs.
+        \pausebreath
+
+        Explicitly, we consider a smooth Fano fibration
+        \[
+        \pi : X \to Y
+        \]
+        with relative Picard number one,
+        where the base \(Y\) is either an abelian variety,
+        or a smooth projective variety of Picard number one.
+        \pausebreath
+
+        In this setting, we show that the Kawaguchi--Silverman Conjecture holds for \(X\).
+        \pausebreath
+
+        \skipifshort{
+        Since some subcases are already known,
+        we further impose certain dynamical conditions.
+        \pausebreath
+        }
+
+        Under these assumptions, we construct a new equivariant fibration
+        which preserves the dynamical degree,
+        and whose base is polarized.
+        \pausebreath
+
+        This reduces the Kawaguchi--Silverman Conjecture for \(X\)
+        to the conjecture for the base, which is already known.
+        \pausebreath
+
+    \section*{Slide 6: Sketch of Proof (4min25s)} % [45--50s]
+
+        Let me very briefly explain the idea of the proof.
+        \pausebreath
+
+        We work in the special Fano fibration case,
+        under the dynamical condition that the dynamical degree strictly decreases.
+        \pausebreath
+
+        First, using this dynamical restriction,
+        we obtain a decomposition of the pseudo-effective cone of divisors on \(X\).
+        \pausebreath
+
+        Using this decomposition together with the geometry of the base \(Y\),
+        we show that the ramification divisor \(R_f\) is an eigenvector of \(f^*\).
+        \pausebreath
+
+        This implies that the induced dynamics on the base are polarized.
+        \pausebreath
+
+        \skipifshort{
+        Next, we establish a criterion for toric bundles using dynamical methods.
+        \pausebreath
+        }
+
+        Applying this criterion, we show that \(\kappa(X, R_f) > 0\),
+        which implies that the fibration we construct is non-trivial.
+        \pausebreath
+
+        Finally, using dynamical Iitaka theory,
+        we combine these steps to produce the desired equivariant fibration.
+        \pausebreath
+
+    \section*{Slide 7: Conclusion (5min)} % [15--20s]
+
+        To conclude, we use the dynamics to restrict geometry and get new structures.
+        \pausebreath
+
+        Thank you very much for your attention.
+
+\end{document}

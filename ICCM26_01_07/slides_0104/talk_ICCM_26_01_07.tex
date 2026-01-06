@@ -63,7 +63,7 @@
     \pause
     \vspace{0.2em}
 
-    Fix an ample line bundle \(H\) and \(h\geq 1\) a height function associated to \(H\).
+    Fix an ample line bundle \(H\) and a height function \(h\geq 1\) associated to \(H\).
 
     % \vspace{0.5em}
     \begin{center}
@@ -152,7 +152,7 @@
                     
                     \(x = [1:2:1]\).
 
-                    \item \(f^*H \sim 2H\) \(\Rightarrow\) \(\delta_f = 2\).
+                    \item \(f^*H \sim 2H\) \(\implies\) \(\delta_f = 2\).
                     
                     \item 
                     \begin{tabular}{r l l}
@@ -254,9 +254,9 @@
 
     \vspace{0.3cm}
     \visible<1->{Projective surfaces                               \hfill [Matsuzawa-Sano-Shibata18,Meng-Zhang22];\\
-    Quasi-projective surfaces (assume DML)            \hfill [Wang23];\\
+    Quasi-projective surfaces (assuming DML)            \hfill [Wang23];\\
     Birational map on surfaces                        \hfill [Xie24];\\
-    Smooth projective 3folds with \(\deg f>1\)        \hfill [Meng-Zhang23];\\}
+    Smooth projective threefolds with \(\deg f>1\)        \hfill [Meng-Zhang23];\\}
     \vspace{1em}
     \visible<2->{\alert<4>{Abelian varieties                                 \hfill [Kawaguchi-Silverman16];}\\
     Hyperk\"ahler manifolds                           \hfill [Lesieutre-Santriano21];\\
@@ -276,13 +276,13 @@
 
     \only<1-7>{
         % Settings:
-        \textbf{Special Fano fibration case (*)} (as the finial output of MMP):\\
+        \textbf{Special Fano fibration case (*)} (as the final output of MMP):\\
         {\fontsize{10pt}{12pt}\selectfont
-            \(X \xrightarrow{\pi} Y\)  smooth Fano fibration of relative picard number (\textcolor{green!60!black}{eg. \(\bbP^n\)-bundles}) over 
+            \(X \xrightarrow{\pi} Y\)  smooth Fano fibration of relative Picard number one (\textcolor{green!60!black}{eg. \(\bbP^n\)-bundles}) over 
             \vspace{-0.8em}
             \alert<3>{\begin{itemize}
                 \item[(*1)] an abelian variety; or
-                \item[(*2)] a smooth projective variety of picard number one.
+                \item[(*2)] a smooth projective variety of Picard number one.
             \end{itemize}}
             \vspace{-1em}
         }
@@ -291,7 +291,7 @@
             \vspace{0.2em}
             \textbf{Dynamical conditions (\(\dagger\))}: \\
             {\fontsize{10pt}{12pt}\selectfont
-                The fibration \((X,f)\xrightarrow{\pi} (Y,g)\) does not preserve the dynamical degree: \(\delta_f > \delta_g\);\\
+                The fibration \((X,f)\xrightarrow{\pi} (Y,g)\) does not preserve the dynamical degree, i.e., \(\delta_f > \delta_g\);\\
                 If in the case (*2), then we require \(\delta_g = 1\).\\
             }
         }}
@@ -319,7 +319,7 @@
     }
 
     \only<4>{
-        After iteration, the the dynamics \(f \acts X\) descends to \(g \acts Y\).
+        After iteration, the dynamics \(f \acts X\) descends to \(g \acts Y\).
         If \(\delta_f = \delta_g\), then 
         \vspace{-0.6em}
         \begin{center}
@@ -336,7 +336,7 @@
 
     \only<7-8>{
         \begin{theorem}[{New Fibration, [Meng-Wang-Y]}]\label{thm: mainthm2}
-            In the special Fano fibration case (*) with dynamical conditions (\(\dagger\)), there exists an equivariant fibrations
+            In the special Fano fibration case (*) with dynamical conditions (\(\dagger\)), there exists an equivariant fibration
             \[ f \acts X \overset{\varphi_{f,R_f}}{---\!\twoheadrightarrow} Z \racts h \]
             with \(\dim Z>0\) and \(h\) is \(\delta_f\)-polarized (in particular, \(\delta_h = \delta_f\)).
         \end{theorem}
@@ -398,7 +398,7 @@
             % Nodes
             \visible<5->{\node[box] (star2) {In the special Fano fibration case (*1) \\ with dynamical conditions (\(\dagger\)),};}
             \visible<6->{\node[box, right=of star2] (decomp) {\(\Psef^1(X) = \pi^*\Psef^1(Y) \oplus \bbR_{\geq 0} D\) \\ with \(D\) nef and \(f^*D \equiv \delta_f D\)};}
-            \visible<7->{\node[box, below=of star2] (positivity) {Positivity of abelian varieties: \\ have no rational curves.};}
+            \visible<7->{\node[box, below=of star2] (positivity) {Positivity of abelian varieties: \\ there is no rational curve on it.};}
             \visible<8->{\node[conclusion, below=of decomp] (conclude) {\(D /\!/ R_f\) and hence \\ \(f^*R_f \equiv \delta_f R_f\).};}
 
             % Arrows
@@ -525,7 +525,7 @@
         
 
         \visible<2->{
-        \node[box, below right=0.25cm and 1.2cm of start] (logetale) {\(f\) étale outside \(D\)};
+        \node[box, below right=0.25cm and 1.2cm of start] (logetale) {\(f\) is étale outside \(D\)};
         }
 
 
